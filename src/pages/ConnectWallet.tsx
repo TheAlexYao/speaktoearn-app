@@ -3,7 +3,7 @@ import { Logo } from "@/components/Logo";
 import { Button } from "@/components/ui/button";
 import { GradientContainer } from "@/components/GradientContainer";
 import { useNavigate } from "react-router-dom";
-import { useAddress, useConnect, useDisconnect, useNetworkMismatch, useNetwork, ConnectorType } from "@thirdweb-dev/react";
+import { useAddress, useConnect, useDisconnect, useNetworkMismatch, useNetwork } from "@thirdweb-dev/react";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -30,7 +30,9 @@ const ConnectWallet = () => {
   const handleConnect = async () => {
     try {
       setIsConnecting(true);
-      await connect(ConnectorType.MetaMask);
+      await connect({
+        connector: "walletConnect"
+      });
       
       // Check if we need to switch to Celo network
       if (isNetworkMismatch) {
