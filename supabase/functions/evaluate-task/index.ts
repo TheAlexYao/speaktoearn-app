@@ -81,7 +81,7 @@ Evaluate the response based on:
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        model: 'gpt-4o-mini',
+        model: 'gpt-4o',  // Changed from gpt-4o-mini to gpt-4o
         messages: [
           { role: 'system', content: systemPrompt },
           { role: 'user', content: userPrompt }
