@@ -1,6 +1,7 @@
 
 import { Card } from "@/components/ui/card";
 import { Award, Zap, Target, TrendingUp } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const metrics = [
   {
