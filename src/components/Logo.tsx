@@ -4,8 +4,8 @@ export const Logo = () => {
       <div className="relative w-12 h-12">
         {/* Outer diamond shape with left-to-right gradient (appears bottom-up when rotated) */}
         <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#4F46E5] to-[#0EA5E9] flex items-center justify-center shadow-lg rotate-45">
-          {/* Inner circle with right-to-left gradient (appears top-down when rotated) */}
-          <div className="w-8 h-8 rounded-full bg-gradient-to-l from-[#4F46E5] to-[#0EA5E9] flex items-center justify-center transform -rotate-45 border border-white/10">
+          {/* Inner circle with diagonal gradient to prevent edge artifacts */}
+          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#0EA5E9] to-[#4F46E5] flex items-center justify-center transform -rotate-45 border border-white/10">
             <span className="font-bold text-xl select-none text-slate-50">S</span>
           </div>
         </div>
