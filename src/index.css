@@ -44,7 +44,7 @@
 }
 
 .gradient-text {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-primary bg-300% animate-gradient;
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-[#8B5CF6] bg-300% animate-gradient;
 }
 
 .card-shadow {
