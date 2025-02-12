@@ -10,6 +10,8 @@ import { TodaysTasks } from "@/components/earn/TodaysTasks";
 import { EcosystemPartners } from "@/components/earn/EcosystemPartners";
 import { EducationalContent } from "@/components/earn/EducationalContent";
 import { SkillsCertification } from "@/components/earn/SkillsCertification";
+import { ReferralProgram } from "@/components/earn/ReferralProgram";
+import { SpecializedTasks } from "@/components/earn/SpecializedTasks";
 
 const Earn = () => {
   const navigate = useNavigate();
@@ -35,6 +37,10 @@ const Earn = () => {
           <EducationalContent />
 
           <SkillsCertification />
+
+          <SpecializedTasks />
+
+          <ReferralProgram />
 
           <TodaysTasks />
 
