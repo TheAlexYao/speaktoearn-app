@@ -1,6 +1,9 @@
+
 import { ArrowRight, Globe, Users, Mic, Database } from "lucide-react";
 import { Logo } from "./Logo";
+import { Navigation } from "./Navigation";
 import { useNavigate } from "react-router-dom";
+
 const stats = [{
   label: "Total Contributors",
   value: "12,456",
@@ -17,10 +20,12 @@ const stats = [{
   icon: Database,
   change: "+24%"
 }];
+
 export const HeroSection = () => {
   const navigate = useNavigate();
   return <section className="relative min-h-screen pt-24 pb-20 px-4 overflow-hidden">
-      {/* Animated background shapes */}
+      <Navigation />
+      
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-primary/10 blur-3xl floating" />
         <div className="absolute -bottom-40 -left-40 w-80 h-80 rounded-full bg-secondary/10 blur-3xl floating" style={{
@@ -28,11 +33,7 @@ export const HeroSection = () => {
       }} />
       </div>
       
-      <div className="max-w-4xl mx-auto text-center relative">
-        <div className="flex justify-center mb-10 animate-fade-up">
-          <Logo />
-        </div>
-        
+      <div className="max-w-4xl mx-auto text-center relative">        
         <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm shadow-sm rounded-full px-6 py-2.5 mb-10 animate-fade-up hover:scale-105 transition-transform duration-300">
           <Globe className="w-4 h-4 text-primary animate-pulse" />
           <span className="text-sm font-medium text-gray-600">
