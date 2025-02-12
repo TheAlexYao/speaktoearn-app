@@ -10,6 +10,7 @@ import Tasks from "./pages/Tasks";
 import TaskDetail from "./pages/TaskDetail";
 import EvaluationResult from "./pages/EvaluationResult";
 import Earn from "./pages/Earn";
+import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,7 +28,7 @@ const App = () => (
           <Route path="/task/:taskId" element={<TaskDetail />} />
           <Route path="/evaluation" element={<EvaluationResult />} />
           <Route path="/earn" element={<Earn />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="/profile" element={<Profile />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
