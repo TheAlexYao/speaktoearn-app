@@ -1,12 +1,37 @@
 
-import { Book, Check } from "lucide-react";
+import { Book, Check, Flag } from "lucide-react";
 
 const languages = [
-  { name: "Swahili", tasks: 47 },
-  { name: "Bengali", tasks: 38 },
-  { name: "Kurdish", tasks: 31 },
-  { name: "Telugu", tasks: 28 },
-  { name: "Yoruba", tasks: 25 },
+  { 
+    name: "Swahili", 
+    tasks: 47,
+    region: "East Africa",
+    weeklyGrowth: "+12%"
+  },
+  { 
+    name: "Bengali", 
+    tasks: 38,
+    region: "South Asia",
+    weeklyGrowth: "+8%"
+  },
+  { 
+    name: "Kurdish", 
+    tasks: 31,
+    region: "Middle East",
+    weeklyGrowth: "+15%"
+  },
+  { 
+    name: "Telugu", 
+    tasks: 28,
+    region: "South India",
+    weeklyGrowth: "+10%"
+  },
+  { 
+    name: "Yoruba", 
+    tasks: 25,
+    region: "West Africa",
+    weeklyGrowth: "+7%"
+  },
 ];
 
 export const HighDemandSection = () => {
@@ -34,8 +59,17 @@ export const HighDemandSection = () => {
             >
               <div className="flex items-start justify-between">
                 <div>
-                  <h3 className="font-semibold text-lg mb-2">{lang.name}</h3>
-                  <p className="text-gray-600">{lang.tasks} tasks available</p>
+                  <div className="flex items-center gap-2 mb-2">
+                    <Flag className="w-4 h-4 text-primary" />
+                    <h3 className="font-semibold text-lg">{lang.name}</h3>
+                  </div>
+                  <p className="text-sm text-gray-500 mb-2">{lang.region}</p>
+                  <div className="flex items-center gap-2">
+                    <p className="text-gray-600">{lang.tasks} tasks</p>
+                    <span className="text-xs text-success-500 font-medium">
+                      {lang.weeklyGrowth}
+                    </span>
+                  </div>
                 </div>
                 <div className="bg-primary/10 rounded-full p-2">
                   <Check className="w-4 h-4 text-primary" />
