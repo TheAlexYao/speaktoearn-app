@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { GradientContainer } from "@/components/GradientContainer";
 import { ArrowLeft } from "lucide-react";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 
 const TASK_DATA = {
   paraphrase: {
@@ -50,32 +51,55 @@ const TaskDetail = () => {
     toast.info("Submitting your response...");
 
     try {
-      // Simulate API call delay
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      // Simulate evaluation
-      const score = Math.floor(Math.random() * 30) + 70;
-      const feedbackMessages = {
-        paraphrase: "Your paraphrase is clear and accurate, but consider varying the sentence structure slightly for better fluency.",
-        factual: "Good correction and explanation. Your response accurately identifies and explains the error.",
-      };
-      
-      const feedback = taskId && feedbackMessages[taskId as keyof typeof feedbackMessages];
-      
-      // Simulate successful evaluation
+      const user = (await supabase.auth.getUser()).data.user;
+      if (!user) {
+        toast.error("Please sign in to submit tasks");
+        return;
+      }
+
+      // Create submission record
+      const { data: submission, error: submissionError } = await supabase
+        .from('task_submissions')
+        .insert({
+          user_id: user.id,
+          task_type: taskId,
+          original_text: taskData.originalText,
+          response_text: paraphrase,
+          status: 'pending_evaluation'
+        })
+        .select()
+        .single();
+
+      if (submissionError || !submission) {
+        throw new Error(submissionError?.message || "Failed to create submission");
+      }
+
+      // Call evaluation function
+      const { data: evaluation, error: evaluationError } = await supabase.functions
+        .invoke('evaluate-task', {
+          body: {
+            submissionId: submission.id,
+            taskType: taskId,
+            originalText: taskData.originalText,
+            responseText: paraphrase
+          }
+        });
+
+      if (evaluationError) {
+        throw new Error(`Evaluation failed: ${evaluationError.message}`);
+      }
+
       toast.success("Evaluation complete!");
       
-      if (score >= 70) {
+      if (evaluation.passed) {
         toast.success(`Task passed! Processing reward of ${taskData.reward}...`);
       }
 
-      // Simulate blockchain delay
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      // Navigate to result page with transaction data
-      navigate(`/evaluation?score=${score}&feedback=${encodeURIComponent(feedback || "")}&taskId=${taskId}&txHash=${encodeURIComponent("0x123...abc")}`);
+      // Navigate to result page
+      navigate(`/evaluation?score=${evaluation.score}&feedback=${encodeURIComponent(evaluation.feedback)}&taskId=${taskId}&txHash=${encodeURIComponent(submission.transaction_hash || '')}`);
     } catch (error) {
-      toast.error("Something went wrong. Please try again.");
+      console.error('Submission error:', error);
+      toast.error(error.message || "Something went wrong. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
