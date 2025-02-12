@@ -2,7 +2,6 @@
 import { GradientContainer } from "@/components/GradientContainer";
 import { useNavigate } from "react-router-dom";
 import { ConnectButton } from "thirdweb/react";
-import { supportedWallets } from "@/lib/thirdweb";
 
 const ConnectWalletPage = () => {
   const navigate = useNavigate();
@@ -22,9 +21,8 @@ const ConnectWalletPage = () => {
           </div>
 
           <div className="px-3 md:p-4">
-            <ConnectButton
-              modalSize="wide"
-              theme="dark"
+            <ConnectButton 
+              buttonTitle="Connect Wallet"
               style={{
                 backgroundColor: "white",
                 color: "#4F46E5",
