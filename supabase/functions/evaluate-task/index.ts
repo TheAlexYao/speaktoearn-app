@@ -30,10 +30,36 @@ serve(async (req) => {
     const { submissionId, taskType, originalText, responseText }: EvaluationRequest = await req.json();
     console.log('Evaluating submission:', { submissionId, taskType, originalText, responseText });
 
+    // Define the evaluation function schema
+    const evaluateFunction = {
+      name: "evaluate_submission",
+      description: "Evaluate a user's task submission based on specific criteria",
+      parameters: {
+        type: "object",
+        properties: {
+          score: {
+            type: "integer",
+            description: "Score from 0-100 based on quality and accuracy",
+            minimum: 0,
+            maximum: 100
+          },
+          feedback: {
+            type: "string",
+            description: "Detailed feedback explaining the evaluation"
+          },
+          passed: {
+            type: "boolean",
+            description: "Whether the submission passes the minimum requirements (score >= 70)"
+          }
+        },
+        required: ["score", "feedback", "passed"]
+      }
+    };
+
     // Prepare system prompt based on task type
     const systemPrompt = taskType === 'paraphrase' 
-      ? "You are an expert evaluator of paraphrasing quality. Grade submissions on clarity, accuracy, and natural language use. Provide specific feedback."
-      : "You are an expert fact-checker. Grade submissions on accuracy, clarity of explanation, and proper correction of misinformation. Provide specific feedback.";
+      ? "You are an expert evaluator of paraphrasing quality. Grade submissions on clarity, accuracy, and natural language use."
+      : "You are an expert fact-checker. Grade submissions on accuracy, clarity of explanation, and proper correction of misinformation.";
 
     // Prepare evaluation prompt
     const userPrompt = `
@@ -42,19 +68,12 @@ Task: ${taskType === 'paraphrase' ? 'Paraphrase the text while maintaining its m
 Original text: "${originalText}"
 User's response: "${responseText}"
 
-Evaluate the response and provide:
-1. A score from 0-100
-2. Specific feedback on the quality
-3. Whether it passes (score >= 70)
+Evaluate the response based on:
+1. Accuracy and correctness
+2. Clarity of expression
+3. ${taskType === 'paraphrase' ? 'Natural language use and originality' : 'Quality of explanation'}`;
 
-Format your response as a JSON object with these exact keys:
-{
-  "score": number,
-  "feedback": string,
-  "passed": boolean
-}`;
-
-    // Call GPT-4o for evaluation
+    // Call GPT-4o for evaluation with function calling
     const openAIResponse = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
       headers: {
@@ -67,6 +86,8 @@ Format your response as a JSON object with these exact keys:
           { role: 'system', content: systemPrompt },
           { role: 'user', content: userPrompt }
         ],
+        functions: [evaluateFunction],
+        function_call: { name: "evaluate_submission" }
       }),
     });
 
@@ -75,15 +96,18 @@ Format your response as a JSON object with these exact keys:
     }
 
     const aiResponse = await openAIResponse.json();
-    const evaluation = JSON.parse(aiResponse.choices[0].message.content);
-    console.log('AI Evaluation:', evaluation);
+    console.log('AI Response:', aiResponse);
+
+    // Parse the function call response
+    const functionCallArguments = JSON.parse(aiResponse.choices[0].message.function_call.arguments);
+    console.log('Evaluation result:', functionCallArguments);
 
     // Update submission in database
     const { error: updateError } = await supabase
       .from('task_submissions')
       .update({
-        score: evaluation.score,
-        feedback: evaluation.feedback,
+        score: functionCallArguments.score,
+        feedback: functionCallArguments.feedback,
         status: 'evaluated'
       })
       .eq('id', submissionId);
@@ -93,7 +117,7 @@ Format your response as a JSON object with these exact keys:
     }
 
     return new Response(
-      JSON.stringify(evaluation),
+      JSON.stringify(functionCallArguments),
       { 
         headers: { 
           ...corsHeaders,
