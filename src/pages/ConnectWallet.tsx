@@ -2,8 +2,15 @@
 import { Logo } from "@/components/Logo";
 import { Button } from "@/components/ui/button";
 import { GradientContainer } from "@/components/GradientContainer";
+import { useNavigate } from "react-router-dom";
 
 const ConnectWallet = () => {
+  const navigate = useNavigate();
+
+  const handleConnect = () => {
+    navigate('/tasks');
+  };
+
   return (
     <div className="relative">
       <GradientContainer />
@@ -37,11 +44,12 @@ const ConnectWallet = () => {
             </div>
           </div>
 
-          {/* Connect Button - Placeholder for now */}
+          {/* Connect Button */}
           <div className="p-4 animate-fade-up" style={{ animationDelay: "300ms" }}>
             <Button 
               className="w-full text-lg py-6 bg-white hover:bg-white/90 text-[#4F46E5] font-semibold shadow-2xl hover:shadow-white/20 transition-all duration-300 border-0"
               variant="secondary"
+              onClick={handleConnect}
             >
               Connect Wallet
             </Button>
