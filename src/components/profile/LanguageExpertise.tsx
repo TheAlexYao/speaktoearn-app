@@ -23,7 +23,7 @@ const languages = [
 
 export const LanguageExpertise = () => {
   const getAcceptanceRateColor = (rate: number) => {
-    if (rate >= 90) return "text-white font-medium";
+    if (rate >= 90) return "text-success-500";
     if (rate >= 80) return "text-warning-500";
     return "text-destructive-500";
   };
@@ -39,22 +39,22 @@ export const LanguageExpertise = () => {
 
       <div className="space-y-4">
         {languages.map((lang) => (
-          <Card key={lang.language} className="hover:shadow-xl transition-all duration-300 bg-primary/10">
+          <Card key={lang.language} className="hover:shadow-xl transition-all duration-300 bg-white">
             <CardContent className="p-5">
               <div className="flex items-start justify-between mb-4">
                 <div>
                   <div className="flex items-center gap-2">
-                    <h3 className="font-semibold text-lg text-white">{lang.language}</h3>
-                    <Shield className="w-4 h-4 text-white" />
+                    <h3 className="font-semibold text-lg text-gray-900">{lang.language}</h3>
+                    <Shield className="w-4 h-4 text-gray-600" />
                   </div>
                   <div className="flex items-center gap-2 mt-1">
-                    <Star className="w-4 h-4 text-white" />
-                    <span className="text-sm font-medium text-white">{lang.proficiency}</span>
-                    <span className="text-sm text-white/80">· {lang.tasksCompleted} tasks</span>
+                    <Star className="w-4 h-4 text-gray-600" />
+                    <span className="text-sm font-medium text-gray-900">{lang.proficiency}</span>
+                    <span className="text-sm text-gray-600">· {lang.tasksCompleted} tasks</span>
                   </div>
                 </div>
                 <span className={cn(
-                  "text-sm",
+                  "text-sm font-medium",
                   getAcceptanceRateColor(lang.acceptanceRate)
                 )}>
                   {lang.acceptanceRate}% Acceptance
@@ -63,8 +63,8 @@ export const LanguageExpertise = () => {
               
               <div className="space-y-2">
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-white/80">Proficiency Level</span>
-                  <span className="font-medium text-white">{lang.badge}</span>
+                  <span className="text-gray-600">Proficiency Level</span>
+                  <span className="font-medium text-gray-900">{lang.badge}</span>
                 </div>
                 <Progress value={lang.acceptanceRate} className="h-2" />
               </div>
