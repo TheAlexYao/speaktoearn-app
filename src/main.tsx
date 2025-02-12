@@ -7,7 +7,7 @@ import { supportedWallets, client } from './lib/thirdweb';
 
 createRoot(document.getElementById("root")!).render(
   <ThirdwebProvider 
-    clientId={import.meta.env.VITE_THIRDWEB_CLIENT_ID || "your-client-id"}
+    client={client}
     supportedWallets={supportedWallets}
   >
     <App />

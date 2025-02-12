@@ -9,7 +9,7 @@ export const client = createThirdwebClient({
 
 // Define supported wallets with correct wallet IDs
 export const supportedWallets = [
-  createWallet("metamask"),
-  createWallet("coinbase"),
-  createWallet("walletConnect"),
+  createWallet("io.metamask"),
+  createWallet("com.coinbase.wallet"),
+  createWallet("walletconnect.com"),
 ];

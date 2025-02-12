@@ -22,7 +22,8 @@ const ConnectWalletPage = () => {
 
           <div className="px-3 md:p-4">
             <ConnectButton 
-              buttonTitle="Connect Wallet"
+              theme="light"
+              modalSize="wide"
               style={{
                 backgroundColor: "white",
                 color: "#4F46E5",
