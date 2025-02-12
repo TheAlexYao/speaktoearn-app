@@ -34,7 +34,7 @@ export const TaskPrompt = ({ topicId, onStartRecording }: TaskPromptProps) => {
   const task = getTaskDetails(topicId);
   
   return (
-    <div className="space-y-6 animate-fade-up">
+    <div className="space-y-6 animate-fade-up px-4 md:px-6">
       <div className="text-center space-y-2">
         <h2 className="text-xl font-bold text-gray-900">Your Task</h2>
         <p className="text-gray-600">Record your response in Swahili</p>
@@ -53,7 +53,7 @@ export const TaskPrompt = ({ topicId, onStartRecording }: TaskPromptProps) => {
       <div className="flex justify-center pt-4">
         <Button
           onClick={onStartRecording}
-          className="flex items-center gap-2"
+          className="flex items-center gap-2 w-full sm:w-auto"
           size="lg"
         >
           <Mic className="w-5 h-5" />

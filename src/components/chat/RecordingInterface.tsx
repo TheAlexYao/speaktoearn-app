@@ -23,7 +23,7 @@ export const RecordingInterface = ({ onFinishRecording }: RecordingInterfaceProp
   };
 
   return (
-    <div className="space-y-6 animate-fade-up">
+    <div className="space-y-6 animate-fade-up px-4 md:px-6">
       <div className="text-center space-y-2">
         <h2 className="text-xl font-bold text-gray-900">
           {isRecording ? "Recording..." : "Review Recording"}
@@ -35,7 +35,7 @@ export const RecordingInterface = ({ onFinishRecording }: RecordingInterfaceProp
 
       <Card className="p-6 bg-white">
         <div className="flex flex-col items-center space-y-6">
-          <div className="relative w-24 h-24 flex items-center justify-center">
+          <div className="relative w-20 h-20 md:w-24 md:h-24 flex items-center justify-center">
             {isRecording ? (
               <div className="absolute inset-0 bg-red-100 rounded-full animate-pulse" />
             ) : null}
@@ -52,12 +52,13 @@ export const RecordingInterface = ({ onFinishRecording }: RecordingInterfaceProp
 
           <p className="text-2xl font-mono">{formatTime(recordingTime)}</p>
 
-          <div className="flex gap-4">
+          <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
             {isRecording ? (
               <Button
                 variant="destructive"
                 size="lg"
                 onClick={handleStopRecording}
+                className="w-full sm:w-auto"
               >
                 Stop Recording
               </Button>
@@ -67,12 +68,14 @@ export const RecordingInterface = ({ onFinishRecording }: RecordingInterfaceProp
                   variant="outline"
                   size="lg"
                   onClick={() => setIsRecording(true)}
+                  className="w-full sm:w-auto"
                 >
                   Record Again
                 </Button>
                 <Button
                   size="lg"
                   onClick={onFinishRecording}
+                  className="w-full sm:w-auto"
                 >
                   Submit Recording
                 </Button>

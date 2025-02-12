@@ -5,6 +5,7 @@ import { RecordingInterface } from "@/components/chat/RecordingInterface";
 import { ChatContainer } from "@/components/chat/ChatContainer";
 import { useState } from "react";
 import { GradientContainer } from "@/components/GradientContainer";
+import { BottomNav } from "@/components/BottomNav";
 
 type ChatState = "welcome" | "task" | "recording" | "review" | "follow_up" | "completion";
 
@@ -22,7 +23,7 @@ export default function Chat() {
   };
   
   return (
-    <div className="min-h-screen relative">
+    <div className="min-h-screen relative pb-16">
       <GradientContainer />
       <div className="relative z-10 container mx-auto px-4 py-6 max-w-2xl">
         <ChatContainer>
@@ -42,6 +43,7 @@ export default function Chat() {
           )}
         </ChatContainer>
       </div>
+      <BottomNav />
     </div>
   );
 }

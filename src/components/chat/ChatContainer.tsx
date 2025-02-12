@@ -8,8 +8,8 @@ interface ChatContainerProps {
 
 export const ChatContainer = ({ children }: ChatContainerProps) => {
   return (
-    <Card className="w-full bg-white shadow-lg min-h-[80vh] flex flex-col">
-      <ScrollArea className="flex-1 p-4">
+    <Card className="w-full bg-white shadow-lg min-h-[calc(100vh-8rem)] flex flex-col">
+      <ScrollArea className="flex-1 p-4 md:p-6">
         {children}
       </ScrollArea>
     </Card>
