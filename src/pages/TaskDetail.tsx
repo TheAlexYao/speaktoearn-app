@@ -13,6 +13,13 @@ const TASK_DATA = {
     originalText: "According to the company's quarterly report, revenue grew by 12% compared to the previous quarter despite a downturn in global markets.",
     exampleParaphrase: "The quarterly report shows that the company's revenue increased by 12% from the last quarter, even though global markets were declining.",
     reward: "0.25 CUSD",
+  },
+  factual: {
+    title: "Correct a Misstated Fact",
+    instructions: "Review the provided statement and verify its factual accuracy. If the statement is incorrect, rewrite it with the correct information and include a brief explanation of your correction.",
+    originalText: "The capital of Australia is Sydney.",
+    exampleParaphrase: "The capital of Australia is Canberra. While Sydney is the largest city, Canberra is the political center.",
+    reward: "0.15 CUSD",
   }
 };
 
@@ -82,11 +89,15 @@ const TaskDetail = () => {
                 </h2>
                 <div className="space-y-4">
                   <div>
-                    <div className="font-medium text-gray-900 mb-1">Original Sentence:</div>
+                    <div className="font-medium text-gray-900 mb-1">
+                      {taskId === "factual" ? "Input Statement:" : "Original Sentence:"}
+                    </div>
                     <p className="text-gray-600">{taskData.originalText}</p>
                   </div>
                   <div>
-                    <div className="font-medium text-gray-900 mb-1">Expected Paraphrase:</div>
+                    <div className="font-medium text-gray-900 mb-1">
+                      {taskId === "factual" ? "Expected Correction:" : "Expected Paraphrase:"}
+                    </div>
                     <p className="text-gray-600">{taskData.exampleParaphrase}</p>
                   </div>
                 </div>
@@ -97,13 +108,17 @@ const TaskDetail = () => {
                   htmlFor="paraphrase" 
                   className="block text-sm font-medium text-gray-900 mb-2"
                 >
-                  Enter your paraphrase below:
+                  {taskId === "factual" 
+                    ? "Enter your corrected statement and explanation here:" 
+                    : "Enter your paraphrase below:"}
                 </label>
                 <Textarea
                   id="paraphrase"
                   value={paraphrase}
                   onChange={(e) => setParaphrase(e.target.value)}
-                  placeholder="Write your paraphrase here..."
+                  placeholder={taskId === "factual" 
+                    ? "Write your correction and explanation here..." 
+                    : "Write your paraphrase here..."}
                   className="min-h-[120px] mb-4"
                 />
                 <div className="flex gap-3">
