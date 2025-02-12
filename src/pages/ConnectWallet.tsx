@@ -1,15 +1,20 @@
 
-import { Logo } from "@/components/Logo";
-import { Button } from "@/components/ui/button";
 import { GradientContainer } from "@/components/GradientContainer";
 import { useNavigate } from "react-router-dom";
+import { ConnectButton } from "thirdweb/react";
+import { useAddress } from "thirdweb/react";
+import { client, supportedWallets } from "@/lib/thirdweb";
+import { useEffect } from "react";
 
 const ConnectWallet = () => {
   const navigate = useNavigate();
+  const address = useAddress();
   
-  const handleConnect = () => {
-    navigate('/tasks');
-  };
+  useEffect(() => {
+    if (address) {
+      navigate('/tasks');
+    }
+  }, [address, navigate]);
 
   return (
     <div className="relative min-h-screen">
@@ -47,13 +52,15 @@ const ConnectWallet = () => {
           <div className="px-3 md:p-4 animate-fade-up" 
             style={{ animationDelay: "300ms" }}
           >
-            <Button 
-              className="w-full text-base md:text-lg py-4 md:py-6 bg-white hover:bg-white/90 text-[#4F46E5] font-semibold shadow-2xl hover:shadow-white/20 transition-all duration-300 border-0" 
-              variant="secondary"
-              onClick={handleConnect}
-            >
-              Connect Wallet
-            </Button>
+            <ConnectButton
+              client={client}
+              wallets={supportedWallets}
+              connectModal={{
+                size: "compact",
+                theme: "dark",
+              }}
+              className="w-full text-base md:text-lg py-4 md:py-6 bg-white hover:bg-white/90 text-[#4F46E5] font-semibold shadow-2xl hover:shadow-white/20 transition-all duration-300 border-0"
+            />
           </div>
 
           {/* Footer */}

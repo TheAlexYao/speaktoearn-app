@@ -1,19 +1,19 @@
 
 import { createThirdwebClient } from "thirdweb";
 import { createWallet } from "thirdweb/wallets";
-import { celo } from "thirdweb/chains";
+import { celoAlfajores } from "@thirdweb-dev/chains";
 
 // Create the client
 export const client = createThirdwebClient({
   clientId: import.meta.env.VITE_THIRDWEB_CLIENT_ID || "your-client-id",
 });
 
-// Define supported wallets
+// Define supported wallets with correct wallet IDs
 export const supportedWallets = [
-  createWallet("metamask"),
-  createWallet("coinbase"),
-  createWallet("walletConnect"),
+  createWallet("io.metamask"),
+  createWallet("com.coinbase.wallet"),
+  createWallet("wallet-connect"),
 ];
 
 // Export chain configuration
-export const chainConfig = celo;
+export const chainConfig = celoAlfajores;
