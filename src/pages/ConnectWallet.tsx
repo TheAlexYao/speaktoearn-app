@@ -3,12 +3,51 @@ import { Logo } from "@/components/Logo";
 import { Button } from "@/components/ui/button";
 import { GradientContainer } from "@/components/GradientContainer";
 import { useNavigate } from "react-router-dom";
+import { useAddress, useConnect, useDisconnect, useNetworkMismatch, useNetwork, ChainId } from "@thirdweb-dev/react";
+import { toast } from "sonner";
+import { Loader2 } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const ConnectWallet = () => {
   const navigate = useNavigate();
+  const address = useAddress();
+  const connect = useConnect();
+  const disconnect = useDisconnect();
+  const [, switchNetwork] = useNetwork();
+  const isNetworkMismatch = useNetworkMismatch();
+  const [isConnecting, setIsConnecting] = useState(false);
   
-  const handleConnect = () => {
-    navigate('/tasks');
+  useEffect(() => {
+    // If user is already connected and on right network, redirect to tasks
+    if (address && !isNetworkMismatch) {
+      navigate('/tasks');
+    }
+  }, [address, isNetworkMismatch, navigate]);
+
+  const handleConnect = async () => {
+    try {
+      setIsConnecting(true);
+      await connect();
+      
+      // Check if we need to switch to Celo network
+      if (isNetworkMismatch) {
+        try {
+          await switchNetwork?.(ChainId.Celo);
+        } catch (error) {
+          console.error("Failed to switch network:", error);
+          toast.error("Please switch to the Celo network in your wallet");
+          return;
+        }
+      }
+      
+      toast.success("Wallet connected successfully!");
+      navigate('/tasks');
+    } catch (error: any) {
+      console.error("Connection error:", error);
+      toast.error(error?.message || "Failed to connect wallet");
+    } finally {
+      setIsConnecting(false);
+    }
   };
 
   return (
@@ -51,8 +90,16 @@ const ConnectWallet = () => {
               className="w-full text-base md:text-lg py-4 md:py-6 bg-white hover:bg-white/90 text-[#4F46E5] font-semibold shadow-2xl hover:shadow-white/20 transition-all duration-300 border-0" 
               variant="secondary"
               onClick={handleConnect}
+              disabled={isConnecting}
             >
-              Connect Wallet
+              {isConnecting ? (
+                <>
+                  <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                  Connecting...
+                </>
+              ) : (
+                "Connect Wallet"
+              )}
             </Button>
           </div>
 
