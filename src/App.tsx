@@ -12,6 +12,7 @@ import EvaluationResult from "./pages/EvaluationResult";
 import Earn from "./pages/Earn";
 import Profile from "./pages/Profile";
 import Alerts from "./pages/Alerts";
+import Chat from "./pages/Chat";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -31,6 +32,7 @@ const App = () => (
           <Route path="/earn" element={<Earn />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/alerts" element={<Alerts />} />
+          <Route path="/chat" element={<Chat />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
