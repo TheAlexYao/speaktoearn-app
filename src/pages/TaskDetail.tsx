@@ -51,17 +51,10 @@ const TaskDetail = () => {
     toast.info("Submitting your response...");
 
     try {
-      const user = (await supabase.auth.getUser()).data.user;
-      if (!user) {
-        toast.error("Please sign in to submit tasks");
-        return;
-      }
-
       // Create submission record
       const { data: submission, error: submissionError } = await supabase
         .from('task_submissions')
         .insert({
-          user_id: user.id,
           task_type: taskId,
           original_text: taskData.originalText,
           response_text: paraphrase,
