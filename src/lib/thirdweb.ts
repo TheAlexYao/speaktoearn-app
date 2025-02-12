@@ -2,10 +2,10 @@
 import { createThirdwebClient } from "thirdweb";
 import { defineChain } from "thirdweb/chains";
 import {
-  createWallet,
-  injectedWallet,
-  smartWallet,
-} from "thirdweb/wallets";
+  coinbaseWallet,
+  metamaskWallet,
+  walletConnect,
+} from "@thirdweb-dev/wallets";
 
 // Define Celo Alfajores testnet
 export const celoAlfajores = defineChain({
@@ -19,7 +19,7 @@ export const client = createThirdwebClient({
 
 // Configure available wallets
 export const wallets = [
-  injectedWallet(),
-  createWallet("com.walletconnect.modal"),
-  smartWallet(),
+  metamaskWallet(),
+  coinbaseWallet(),
+  walletConnect(),
 ];

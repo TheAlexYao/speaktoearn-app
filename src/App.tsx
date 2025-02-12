@@ -2,7 +2,7 @@
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { ThirdwebProvider } from "thirdweb/react";
+import { ThirdwebProvider } from "@thirdweb-dev/react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import ConnectWallet from "./pages/ConnectWallet";
@@ -14,10 +14,13 @@ import Profile from "./pages/Profile";
 import Alerts from "./pages/Alerts";
 import Chat from "./pages/Chat";
 import NotFound from "./pages/NotFound";
-import { client } from "@/lib/thirdweb";
+import { celoAlfajores } from "@/lib/thirdweb";
 
 const App = () => (
-  <ThirdwebProvider client={client}>
+  <ThirdwebProvider 
+    activeChain={celoAlfajores}
+    clientId="6ecdb315f1c7e82268b27830744bc374"
+  >
     <TooltipProvider>
       <BrowserRouter>
         <Toaster />
