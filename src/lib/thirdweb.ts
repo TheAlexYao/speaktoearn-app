@@ -1,15 +1,7 @@
 
 import { createThirdwebClient } from "thirdweb";
-import { createWallet } from "thirdweb/wallets";
 
-// Create the client
+// Create the client with minimal configuration
 export const client = createThirdwebClient({
-  clientId: import.meta.env.VITE_THIRDWEB_CLIENT_ID || "your-client-id",
+  clientId: import.meta.env.VITE_THIRDWEB_CLIENT_ID,
 });
-
-// Define supported wallets with correct wallet IDs
-export const supportedWallets = [
-  createWallet("io.metamask"),
-  createWallet("com.coinbase.wallet"),
-  createWallet("walletconnect.com"),
-];
