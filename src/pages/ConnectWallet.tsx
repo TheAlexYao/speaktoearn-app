@@ -1,3 +1,4 @@
+
 import { Logo } from "@/components/Logo";
 import { Button } from "@/components/ui/button";
 import { GradientContainer } from "@/components/GradientContainer";
@@ -29,7 +30,7 @@ const ConnectWallet = () => {
   const handleConnect = async () => {
     try {
       setIsConnecting(true);
-      await connect("walletConnect");
+      await connect.connectWallet("walletConnect");
       
       // Check if we need to switch to Celo network
       if (isNetworkMismatch) {
