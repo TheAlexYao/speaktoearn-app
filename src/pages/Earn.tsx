@@ -109,31 +109,31 @@ const Earn = () => {
       <div className="relative z-10">
         <div className="max-w-lg mx-auto px-4 pt-8">
           {/* Quick Actions Dashboard */}
-          <div className="bg-white/90 backdrop-blur-sm rounded-xl p-6 mb-8 shadow-lg">
-            <div className="flex items-center justify-between mb-4">
+          <div className="bg-white/95 backdrop-blur-xl rounded-2xl p-6 mb-8 shadow-xl border border-white/20 animate-fade-up">
+            <div className="flex items-center justify-between mb-6">
               <div>
-                <h2 className="text-2xl font-bold text-gray-900">Quick Actions</h2>
-                <p className="text-sm text-gray-600">Continue your earning streak</p>
+                <h2 className="text-2xl font-bold bg-gradient-to-r from-primary via-secondary to-[#8B5CF6] bg-clip-text text-transparent">Quick Actions</h2>
+                <p className="text-sm text-gray-600 mt-1">Continue your earning streak</p>
               </div>
               <div className="text-right">
                 <p className="text-sm text-gray-600">Today's Potential</p>
-                <p className="text-xl font-bold text-primary">24.5 CUSD</p>
+                <p className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">24.5 CUSD</p>
               </div>
             </div>
             
-            <div className="grid grid-cols-2 gap-4 mb-4">
-              <div className="bg-primary/5 rounded-lg p-4">
-                <div className="text-lg font-semibold text-primary">7 Days</div>
+            <div className="grid grid-cols-2 gap-4 mb-6">
+              <div className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-xl p-4 border border-white/10">
+                <div className="text-xl font-semibold text-primary">7 Days</div>
                 <div className="text-sm text-gray-600">Active Streak</div>
               </div>
-              <div className="bg-primary/5 rounded-lg p-4">
-                <div className="text-lg font-semibold text-primary">41</div>
+              <div className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-xl p-4 border border-white/10">
+                <div className="text-xl font-semibold text-primary">41</div>
                 <div className="text-sm text-gray-600">Tasks Available</div>
               </div>
             </div>
 
             <Button 
-              className="w-full"
+              className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 transition-all duration-300"
               onClick={() => navigate('/tasks')}
             >
               Start Latest Task
@@ -141,10 +141,10 @@ const Earn = () => {
           </div>
 
           {/* Task Categories */}
-          <div className="mb-8">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-xl font-semibold text-gray-900">Categories</h2>
-              <Button variant="ghost" size="sm" className="text-primary">
+          <div className="mb-8 animate-fade-up" style={{ animationDelay: '100ms' }}>
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-xl font-bold text-gray-900">Categories</h2>
+              <Button variant="ghost" size="sm" className="text-primary hover:text-secondary transition-colors">
                 View All
               </Button>
             </div>
@@ -152,14 +152,14 @@ const Earn = () => {
             <ScrollArea className="w-full">
               <div className="flex space-x-4 pb-4">
                 {taskCategories.map((category) => (
-                  <Card key={category.id} className="flex-none w-[250px]">
-                    <CardContent className="p-4">
+                  <Card key={category.id} className="flex-none w-[250px] hover:shadow-xl transition-all duration-300 border-white/20 backdrop-blur-sm bg-white/90">
+                    <CardContent className="p-5">
                       <div className="flex items-start justify-between">
                         <div>
-                          <div className="bg-primary/10 rounded-full p-2 w-fit mb-3">
-                            <category.icon className="w-5 h-5 text-primary" />
+                          <div className="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full p-3 w-fit mb-4">
+                            <category.icon className="w-6 h-6 text-primary" />
                           </div>
-                          <h3 className="font-semibold mb-1">{category.title}</h3>
+                          <h3 className="font-semibold text-lg mb-2">{category.title}</h3>
                           <p className="text-sm text-gray-600">
                             {category.availableTasks} tasks available
                           </p>
@@ -168,7 +168,7 @@ const Earn = () => {
                           </p>
                         </div>
                         {category.isNew && (
-                          <span className="bg-primary text-white text-xs px-2 py-1 rounded-full">
+                          <span className="bg-gradient-to-r from-primary to-secondary text-white text-xs px-3 py-1 rounded-full shadow-lg">
                             New
                           </span>
                         )}
@@ -182,10 +182,10 @@ const Earn = () => {
           </div>
 
           {/* Today's Tasks */}
-          <div className="mb-8">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-xl font-semibold text-gray-900">Today's Tasks</h2>
-              <Button variant="ghost" size="sm" className="text-primary">
+          <div className="mb-8 animate-fade-up" style={{ animationDelay: '200ms' }}>
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-xl font-bold text-gray-900">Today's Tasks</h2>
+              <Button variant="ghost" size="sm" className="text-primary hover:text-secondary transition-colors">
                 See All Tasks
               </Button>
             </div>
@@ -193,34 +193,34 @@ const Earn = () => {
             <ScrollArea className="w-full">
               <div className="flex space-x-4 pb-4">
                 {todaysTasks.map((task) => (
-                  <Card key={task.id} className="flex-none w-[300px]">
-                    <CardContent className="p-4">
-                      <div className="flex items-start justify-between mb-3">
-                        <h3 className="font-semibold">{task.title}</h3>
+                  <Card key={task.id} className="flex-none w-[300px] hover:shadow-xl transition-all duration-300 border-white/20 backdrop-blur-sm bg-white/90">
+                    <CardContent className="p-5">
+                      <div className="flex items-start justify-between mb-4">
+                        <h3 className="font-semibold text-lg">{task.title}</h3>
                         {task.isHot && (
-                          <div className="flex items-center text-xs text-orange-500">
+                          <div className="flex items-center text-xs text-orange-500 bg-orange-50 px-2 py-1 rounded-full">
                             <TrendingUp className="w-3 h-3 mr-1" />
                             Hot
                           </div>
                         )}
                       </div>
                       
-                      <div className="flex items-center gap-4 text-sm text-gray-600 mb-3">
-                        <div className="flex items-center">
-                          <Trophy className="w-4 h-4 mr-1" />
+                      <div className="flex items-center gap-4 text-sm text-gray-600 mb-4">
+                        <div className="flex items-center bg-primary/5 px-3 py-1.5 rounded-full">
+                          <Trophy className="w-4 h-4 mr-2 text-primary" />
                           {task.reward}
                         </div>
-                        <div className="flex items-center">
-                          <Clock className="w-4 h-4 mr-1" />
+                        <div className="flex items-center bg-primary/5 px-3 py-1.5 rounded-full">
+                          <Clock className="w-4 h-4 mr-2 text-primary" />
                           {task.time}
                         </div>
                       </div>
                       
                       <div className="flex items-center justify-between">
-                        <span className="text-xs px-2 py-1 bg-gray-100 rounded-full">
+                        <span className="text-xs px-3 py-1.5 bg-gray-100 rounded-full font-medium">
                           {task.difficulty}
                         </span>
-                        <Button size="sm">
+                        <Button size="sm" className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 transition-all duration-300">
                           Start Task
                         </Button>
                       </div>
@@ -233,40 +233,40 @@ const Earn = () => {
           </div>
 
           {/* Ecosystem Partners */}
-          <div>
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-xl font-semibold text-gray-900">Ecosystem Partners</h2>
-              <Button variant="ghost" size="sm" className="text-primary">
+          <div className="animate-fade-up" style={{ animationDelay: '300ms' }}>
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-xl font-bold text-gray-900">Ecosystem Partners</h2>
+              <Button variant="ghost" size="sm" className="text-primary hover:text-secondary transition-colors">
                 Explore All
               </Button>
             </div>
             
             <div className="space-y-4">
               {ecosystemPartners.map((partner) => (
-                <Card key={partner.id}>
-                  <CardContent className="p-4">
+                <Card key={partner.id} className="hover:shadow-xl transition-all duration-300 border-white/20 backdrop-blur-sm bg-white/90">
+                  <CardContent className="p-5">
                     <div className="flex items-center justify-between">
                       <div>
-                        <div className="flex items-center gap-2 mb-1">
-                          <h3 className="font-semibold">{partner.name}</h3>
+                        <div className="flex items-center gap-2 mb-2">
+                          <h3 className="font-semibold text-lg">{partner.name}</h3>
                           {partner.verified && (
-                            <span className="text-xs bg-primary/10 text-primary px-2 py-0.5 rounded-full">
+                            <span className="text-xs bg-gradient-to-r from-primary/10 to-secondary/10 text-primary px-3 py-1 rounded-full font-medium">
                               Verified
                             </span>
                           )}
                         </div>
-                        <p className="text-sm text-gray-600 mb-2">{partner.description}</p>
-                        <div className="flex items-center gap-2">
-                          <span className="text-xs bg-gray-100 px-2 py-0.5 rounded-full">
+                        <p className="text-sm text-gray-600 mb-3">{partner.description}</p>
+                        <div className="flex items-center gap-3">
+                          <span className="text-xs bg-gray-100 px-3 py-1.5 rounded-full font-medium">
                             {partner.tag}
                           </span>
-                          <span className="text-sm font-medium text-primary">
+                          <span className="text-sm font-medium bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                             {partner.reward}
                           </span>
                         </div>
                       </div>
-                      <Button variant="ghost" size="sm">
-                        <ExternalLink className="w-4 h-4 mr-1" />
+                      <Button variant="ghost" size="sm" className="hover:bg-gray-100">
+                        <ExternalLink className="w-4 h-4 mr-2" />
                         Open
                       </Button>
                     </div>
