@@ -30,7 +30,7 @@ const ConnectWallet = () => {
   const handleConnect = async () => {
     try {
       setIsConnecting(true);
-      await connect.connectWallet("walletConnect");
+      await connect("walletConnect");
       
       // Check if we need to switch to Celo network
       if (isNetworkMismatch) {
