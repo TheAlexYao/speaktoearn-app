@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
 import { Shield, Star, Award, ChevronRight } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface Skill {
   id: string;
@@ -41,6 +42,8 @@ const skills: Skill[] = [
 ];
 
 export const SkillsCertification = () => {
+  const isMobile = useIsMobile();
+
   return (
     <div className="mb-8 animate-fade-up" style={{ animationDelay: '500ms' }}>
       <div className="flex items-center justify-between mb-6">
@@ -60,26 +63,28 @@ export const SkillsCertification = () => {
       <div className="space-y-4">
         {skills.map((skill) => (
           <Card key={skill.id} className="hover:shadow-xl transition-all duration-300 border-white/20 backdrop-blur-sm bg-white/90">
-            <CardContent className="p-5">
-              <div className="flex items-start justify-between mb-4">
-                <div>
+            <CardContent className={`p-4 sm:p-5 ${isMobile ? 'space-y-4' : ''}`}>
+              <div className={`flex items-start justify-between ${isMobile ? 'flex-col gap-3' : 'mb-4'}`}>
+                <div className="space-y-1.5">
                   <div className="flex items-center gap-2">
-                    <h3 className="font-semibold text-lg">{skill.name}</h3>
+                    <h3 className="font-semibold text-base sm:text-lg">{skill.name}</h3>
                     {skill.verified && (
                       <Shield className="w-4 h-4 text-primary" />
                     )}
                   </div>
-                  <div className="flex items-center gap-2 mt-1">
+                  <div className="flex items-center gap-2">
                     <Star className="w-4 h-4 text-primary" />
                     <span className="text-sm font-medium">{skill.level}</span>
                     <span className="text-sm text-gray-500">· {skill.tasksCompleted} tasks</span>
                   </div>
                 </div>
-                <Button variant="ghost" size="sm" className="hover:bg-gray-100">
-                  <Award className="w-4 h-4 mr-2" />
-                  Certificate
-                  <ChevronRight className="w-4 h-4 ml-1" />
-                </Button>
+                {!isMobile && (
+                  <Button variant="ghost" size="sm" className="hover:bg-gray-100">
+                    <Award className="w-4 h-4 mr-2" />
+                    Certificate
+                    <ChevronRight className="w-4 h-4 ml-1" />
+                  </Button>
+                )}
               </div>
               
               <div className="space-y-2">
@@ -89,6 +94,14 @@ export const SkillsCertification = () => {
                 </div>
                 <Progress value={skill.progress} className="h-2" />
               </div>
+
+              {isMobile && (
+                <Button variant="ghost" size="sm" className="w-full mt-2 hover:bg-gray-100">
+                  <Award className="w-4 h-4 mr-2" />
+                  View Certificate
+                  <ChevronRight className="w-4 h-4 ml-1" />
+                </Button>
+              )}
             </CardContent>
           </Card>
         ))}
