@@ -1,4 +1,3 @@
-
 import { BottomNav } from "@/components/BottomNav";
 import { GradientContainer } from "@/components/GradientContainer";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -10,10 +9,8 @@ const Tasks = () => {
     <div className="relative min-h-screen pb-32">
       <GradientContainer />
       
-      {/* Content container with proper z-index */}
       <div className="relative z-10">
-        {/* Header with Stats */}
-        <div className="sticky top-0 z-20 bg-white/95 backdrop-blur-lg border-b border-white/20">
+        <div className="sticky top-0 z-20 bg-white shadow-sm">
           <div className="max-w-lg mx-auto px-4 pt-8 pb-4">
             <h1 className="text-2xl font-bold text-gray-900 mb-4">Available Tasks</h1>
             <div className="grid grid-cols-2 gap-4">
@@ -28,11 +25,10 @@ const Tasks = () => {
             </div>
           </div>
 
-          {/* Category Tabs */}
           <div className="max-w-lg mx-auto px-4 pb-2">
             <ScrollArea className="w-full whitespace-nowrap">
               <Tabs defaultValue="all" className="w-full">
-                <TabsList className="bg-white/50">
+                <TabsList className="bg-transparent">
                   <TabsTrigger value="all">All Tasks</TabsTrigger>
                   <TabsTrigger value="voice">Voice</TabsTrigger>
                   <TabsTrigger value="translation">Translation</TabsTrigger>
@@ -44,7 +40,6 @@ const Tasks = () => {
         </div>
 
         <div className="relative z-10 max-w-lg mx-auto px-4 pt-4">
-          {/* Featured Task */}
           <div className="mb-6">
             <div className="bg-gradient-to-r from-primary to-secondary rounded-xl p-6 text-white shadow-lg">
               <div className="flex items-center justify-between mb-3">
@@ -74,7 +69,6 @@ const Tasks = () => {
             </div>
           </div>
 
-          {/* Task List */}
           <div className="space-y-4 mb-20">
             {[
               {
@@ -128,7 +122,6 @@ const Tasks = () => {
             ))}
           </div>
 
-          {/* Stats Footer */}
           <div className="fixed bottom-16 left-0 right-0 bg-white border-t border-gray-200 py-2 shadow-lg">
             <div className="max-w-lg mx-auto px-4 flex justify-between items-center">
               <div className="text-center">
