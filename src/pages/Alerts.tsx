@@ -67,6 +67,83 @@ const demoAlerts: Alert[] = [
     status: "unread",
     priority: "low",
   },
+  {
+    id: "5",
+    type: "task_opportunity",
+    title: "Urgent: Community Review Needed",
+    description: "Help review new translations - earn bonus rewards",
+    timePosted: new Date(Date.now() - 1000 * 60 * 30), // 30 mins ago
+    status: "unread",
+    priority: "urgent",
+    metadata: {
+      reward: "3 CUSD",
+      deadline: new Date(Date.now() + 1000 * 60 * 60 * 12), // 12 hours from now
+    },
+    actions: {
+      primary: {
+        label: "Review Now",
+        href: "/tasks/community-review",
+      },
+    },
+  },
+  {
+    id: "6",
+    type: "achievement",
+    title: "Milestone Reached! 🎉",
+    description: "You've completed 50 medical term recordings",
+    timePosted: new Date(Date.now() - 1000 * 60 * 60 * 4), // 4 hours ago
+    status: "unread",
+    priority: "normal",
+  },
+  {
+    id: "7",
+    type: "payment",
+    title: "Bonus Payment Received",
+    description: "2 CUSD community review bonus",
+    timePosted: new Date(Date.now() - 1000 * 60 * 45), // 45 mins ago
+    status: "unread",
+    priority: "normal",
+    metadata: {
+      txHash: "0x9f31b2...8742d",
+    },
+  },
+  {
+    id: "8",
+    type: "review",
+    title: "New Feedback Available",
+    description: "Review feedback for your recent translations",
+    timePosted: new Date(Date.now() - 1000 * 60 * 90), // 90 mins ago
+    status: "read",
+    priority: "low",
+  },
+  {
+    id: "9",
+    type: "task_opportunity",
+    title: "Limited Time Task",
+    description: "Special event: Record holiday greetings in Swahili",
+    timePosted: new Date(Date.now() - 1000 * 60 * 15), // 15 mins ago
+    status: "unread",
+    priority: "urgent",
+    metadata: {
+      reward: "10 CUSD",
+      deadline: new Date(Date.now() + 1000 * 60 * 60 * 48), // 48 hours from now
+    },
+    actions: {
+      primary: {
+        label: "Join Event",
+        href: "/tasks/holiday-greetings",
+      },
+    },
+  },
+  {
+    id: "10",
+    type: "achievement",
+    title: "Top Contributor 🏆",
+    description: "You're in the top 10% of contributors this week",
+    timePosted: new Date(Date.now() - 1000 * 60 * 120), // 2 hours ago
+    status: "read",
+    priority: "normal",
+  }
 ];
 
 const Alerts = () => {
