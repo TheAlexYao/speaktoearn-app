@@ -1,6 +1,7 @@
 
 import { Alert } from "@/types/alert";
 import { AlertItem } from "./AlertItem";
+import { AlertTriangle, Bell, CheckCircle } from "lucide-react";
 
 interface AlertsListProps {
   alerts: Alert[];
