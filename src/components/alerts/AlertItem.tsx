@@ -14,7 +14,7 @@ const iconMap = {
 };
 
 const priorityStyles = {
-  urgent: "border-l-4 border-destructive bg-destructive/5 animate-pulse",
+  urgent: "border-l-4 border-destructive",
   normal: "border-l-4 border-primary",
   low: "border-l-4 border-muted-foreground",
 };
@@ -30,17 +30,17 @@ export const AlertItem = ({ alert, onMarkRead }: AlertItemProps) => {
   return (
     <Card 
       className={cn(
-        "mb-3 p-4 transition-all hover:shadow-md glass-card",
+        "mb-3 p-4 transition-all hover:shadow-md bg-white/10 backdrop-blur-sm",
         priorityStyles[alert.priority],
         alert.status === "read" ? "opacity-75" : "opacity-100",
-        alert.pinned && "bg-white/5"
+        alert.pinned && "bg-white/15"
       )}
     >
       <div className="flex items-start gap-4">
         <div className={cn(
           "rounded-full p-2",
           alert.priority === "urgent" ? "bg-destructive text-destructive-foreground" :
-          alert.type === "payment" ? "bg-success text-success-foreground" :
+          alert.type === "payment" ? "bg-green-500 text-white" :
           alert.type === "achievement" ? "bg-secondary text-secondary-foreground" :
           "bg-primary text-primary-foreground"
         )}>
@@ -57,7 +57,7 @@ export const AlertItem = ({ alert, onMarkRead }: AlertItemProps) => {
                 {alert.description}
               </p>
               {alert.metadata?.reward && (
-                <span className="text-sm font-medium text-success mt-2 block">
+                <span className="text-sm font-medium text-green-400 mt-2 block">
                   Reward: {alert.metadata.reward}
                 </span>
               )}
@@ -74,7 +74,7 @@ export const AlertItem = ({ alert, onMarkRead }: AlertItemProps) => {
                   asChild
                   variant={alert.priority === "urgent" ? "destructive" : "secondary"}
                   size="sm"
-                  className="hover:bg-white/20"
+                  className="bg-white/20 hover:bg-white/30 text-white"
                 >
                   <Link to={alert.actions.primary.href}>
                     {alert.actions.primary.label}
@@ -85,7 +85,7 @@ export const AlertItem = ({ alert, onMarkRead }: AlertItemProps) => {
                 <Button
                   variant="outline"
                   size="sm"
-                  className="bg-white/10 hover:bg-white/20 text-white border-white/20"
+                  className="border-white/20 bg-white/10 hover:bg-white/20 text-white"
                   onClick={alert.actions.secondary.action}
                 >
                   {alert.actions.secondary.label}

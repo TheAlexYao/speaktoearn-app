@@ -120,7 +120,7 @@ const Alerts = () => {
                   size="sm"
                   onClick={handleMarkAllRead}
                   disabled={unreadCount === 0}
-                  className="bg-white/10 hover:bg-white/20 text-white border-white/20"
+                  className="bg-white/20 hover:bg-white/30 text-white"
                 >
                   <Check className="h-4 w-4 mr-2" />
                   Mark all read
@@ -131,11 +131,11 @@ const Alerts = () => {
                 value={filter}
                 onValueChange={(value) => setFilter(value as AlertType | "all")}
               >
-                <SelectTrigger className="w-[140px] bg-white/10 text-white border-white/20">
+                <SelectTrigger className="w-[140px] bg-white/20 hover:bg-white/30 text-white border-white/20">
                   <Filter className="h-4 w-4 mr-2" />
                   <SelectValue placeholder="Filter" />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className="bg-white border-none">
                   <SelectItem value="all">All</SelectItem>
                   <SelectItem value="task_opportunity">Tasks</SelectItem>
                   <SelectItem value="payment">Payments</SelectItem>
@@ -155,10 +155,10 @@ const Alerts = () => {
             }}
           />
 
-          {/* Mobile actions - adjusted to be above bottom nav */}
+          {/* Mobile actions */}
           <div className="fixed bottom-16 left-4 right-4 flex gap-2 sm:hidden">
             <Button
-              className="flex-1 bg-white/10 hover:bg-white/20 text-white border-white/20"
+              className="flex-1 bg-white/20 hover:bg-white/30 text-white"
               variant="secondary"
               onClick={handleMarkAllRead}
               disabled={unreadCount === 0}
@@ -167,7 +167,7 @@ const Alerts = () => {
               Mark all read
             </Button>
             <Button
-              className="flex-1 bg-white/10 hover:bg-white/20 text-white border-white/20"
+              className="flex-1 bg-white/20 hover:bg-white/30 text-white"
               variant="secondary"
               onClick={handleClearAll}
               disabled={alerts.length === 0}
