@@ -14,7 +14,7 @@ const iconMap = {
 };
 
 const priorityStyles = {
-  urgent: "border-l-4 border-destructive bg-destructive/10 animate-pulse",
+  urgent: "border-l-4 border-destructive animate-pulse",
   normal: "border-l-4 border-primary",
   low: "border-l-4 border-muted-foreground",
 };
@@ -30,11 +30,9 @@ export const AlertItem = ({ alert, onMarkRead }: AlertItemProps) => {
   return (
     <Card 
       className={cn(
-        "mb-3 p-4 transition-all hover:shadow-md shadow-lg",
+        "mb-3 p-4 transition-all hover:shadow-md shadow-lg bg-white",
         priorityStyles[alert.priority],
-        alert.status === "read" ? "opacity-90" : "opacity-100",
-        alert.priority === "urgent" ? "bg-destructive/5" : "bg-white",
-        alert.pinned && "bg-white"
+        alert.status === "read" ? "opacity-90" : "opacity-100"
       )}
     >
       <div className="flex items-start gap-4">
