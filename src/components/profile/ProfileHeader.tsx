@@ -51,20 +51,20 @@ export const ProfileHeader = () => {
   return (
     <div className="mb-8 animate-fade-up" style={{ animationDelay: '0ms' }}>
       <Card className="bg-gradient-to-r from-primary/10 to-secondary/10 border-white/20 backdrop-blur-sm">
-        <div className="p-6">
+        <div className="p-4 sm:p-6">
           <div className="flex items-start justify-between mb-6">
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">Aisha M.</h1>
+              <h1 className="text-2xl font-bold text-white">Aisha M.</h1>
               <div className="flex items-center gap-2 mt-1">
                 <button 
                   onClick={copyWalletAddress}
-                  className="text-sm text-gray-600 flex items-center gap-1 hover:text-gray-900 transition-colors"
+                  className="text-sm text-white/80 flex items-center gap-1 hover:text-white transition-colors"
                 >
                   {walletAddress}
                   <Copy className="w-4 h-4" />
                 </button>
               </div>
-              <div className="mt-1 text-sm text-primary font-medium">
+              <div className="mt-1 text-sm text-white font-medium">
                 Expert in Swahili
               </div>
             </div>
@@ -81,35 +81,35 @@ export const ProfileHeader = () => {
             </div>
           </div>
 
-          <div className="flex gap-3">
+          <div className="flex flex-col sm:flex-row gap-3">
             <Button 
               variant="default"
-              className="flex-1 bg-primary hover:bg-primary/90 text-white shadow-lg"
+              className="bg-white text-primary hover:bg-white/90 shadow-lg w-full sm:flex-1"
             >
               Withdraw Funds
             </Button>
             <Button 
               variant="outline"
               onClick={() => setShowTransactions(!showTransactions)}
-              className="flex-1 border-gray-200 bg-white hover:bg-gray-50 text-gray-700 flex items-center justify-center gap-2"
+              className="border-white/20 bg-white/10 hover:bg-white/20 text-white w-full sm:flex-1 flex items-center justify-center gap-2"
             >
-              Transaction History
+              <span className="flex-1">Transaction History</span>
               {showTransactions ? (
-                <ChevronUp className="w-4 h-4" />
+                <ChevronUp className="w-4 h-4 flex-shrink-0" />
               ) : (
-                <ChevronDown className="w-4 h-4" />
+                <ChevronDown className="w-4 h-4 flex-shrink-0" />
               )}
             </Button>
           </div>
 
           {showTransactions && (
-            <div className="mt-6 space-y-4 border-t border-gray-200 pt-4">
-              <div className="text-sm font-medium text-gray-700">Recent Transactions</div>
+            <div className="mt-6 space-y-4 border-t border-white/20 pt-4">
+              <div className="text-sm font-medium text-white">Recent Transactions</div>
               <div className="space-y-3">
                 {recentTransactions.map((transaction, index) => (
                   <div 
                     key={index}
-                    className="flex items-center justify-between p-3 bg-white rounded-lg shadow-sm"
+                    className="flex items-center justify-between p-3 bg-white/90 rounded-lg shadow-sm"
                   >
                     <div className="flex flex-col">
                       <span className="text-sm font-medium text-gray-900">
