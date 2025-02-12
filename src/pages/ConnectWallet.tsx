@@ -15,13 +15,6 @@ const ConnectWallet = () => {
     <div className="relative min-h-screen">
       <GradientContainer />
       <div className="absolute inset-0">
-        {/* Navigation */}
-        <nav className="w-full px-6 py-6 md:px-8 md:py-8">
-          <div className="max-w-7xl mx-auto flex justify-center">
-            <Logo />
-          </div>
-        </nav>
-
         {/* Main Content */}
         <div className="max-w-md mx-auto px-6 md:px-4 mt-8 md:mt-16 space-y-6 md:space-y-8">
           {/* Header */}
