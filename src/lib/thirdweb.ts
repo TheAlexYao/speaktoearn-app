@@ -14,14 +14,14 @@ export const celoAlfajores: Chain = {
     symbol: "CELO",
     decimals: 18,
   },
-  rpc: ["https://alfajores-forno.celo-testnet.org"],
+  rpc: "https://alfajores-forno.celo-testnet.org",
   testnet: true,
-  blockExplorers: {
-    default: {
+  blockExplorers: [
+    {
       name: "CeloScan",
-      url: "https://alfajores.celoscan.io",
-    },
-  },
+      url: "https://alfajores.celoscan.io"
+    }
+  ],
 };
 
 // Create the client
@@ -31,8 +31,8 @@ export const client = createThirdwebClient({
 
 // Define supported wallets with correct wallet IDs
 export const supportedWallets = [
-  createWallet("metamask"),
-  createWallet("coinbase"),
+  createWallet("injected"),
+  createWallet("coinbaseWallet"),
   createWallet("walletConnect"),
 ];
 
