@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Alert, AlertType } from "@/types/alert";
 import { AlertsList } from "@/components/alerts/AlertsList";
@@ -12,6 +11,7 @@ import {
 } from "@/components/ui/select";
 import { Bell, Check, Filter } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { BottomNav } from "@/components/BottomNav";
 
 // Demo data
 const demoAlerts: Alert[] = [
@@ -95,81 +95,85 @@ const Alerts = () => {
   };
 
   return (
-    <div className="container max-w-4xl py-8 px-4 sm:px-6 lg:px-8">
-      <div className="flex items-center justify-between mb-8">
-        <div>
-          <h1 className="text-2xl font-bold text-foreground flex items-center gap-2">
-            <Bell className="h-6 w-6" />
-            Notifications
-          </h1>
-          {unreadCount > 0 && (
-            <p className="text-sm text-muted-foreground mt-1">
-              You have {unreadCount} unread notifications
-            </p>
-          )}
-        </div>
-
-        <div className="flex items-center gap-3">
-          <div className="hidden sm:block">
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={handleMarkAllRead}
-              disabled={unreadCount === 0}
-            >
-              <Check className="h-4 w-4 mr-2" />
-              Mark all read
-            </Button>
+    <div className="relative min-h-screen pb-32">
+      <div className="container max-w-4xl py-8 px-4 sm:px-6 lg:px-8 overflow-y-auto">
+        <div className="flex items-center justify-between mb-8">
+          <div>
+            <h1 className="text-2xl font-bold text-foreground flex items-center gap-2">
+              <Bell className="h-6 w-6" />
+              Notifications
+            </h1>
+            {unreadCount > 0 && (
+              <p className="text-sm text-muted-foreground mt-1">
+                You have {unreadCount} unread notifications
+              </p>
+            )}
           </div>
-          
-          <Select
-            value={filter}
-            onValueChange={(value) => setFilter(value as AlertType | "all")}
+
+          <div className="flex items-center gap-3">
+            <div className="hidden sm:block">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={handleMarkAllRead}
+                disabled={unreadCount === 0}
+              >
+                <Check className="h-4 w-4 mr-2" />
+                Mark all read
+              </Button>
+            </div>
+            
+            <Select
+              value={filter}
+              onValueChange={(value) => setFilter(value as AlertType | "all")}
+            >
+              <SelectTrigger className="w-[140px]">
+                <Filter className="h-4 w-4 mr-2" />
+                <SelectValue placeholder="Filter" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All</SelectItem>
+                <SelectItem value="task_opportunity">Tasks</SelectItem>
+                <SelectItem value="payment">Payments</SelectItem>
+                <SelectItem value="achievement">Achievements</SelectItem>
+                <SelectItem value="review">Reviews</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+        </div>
+
+        <AlertsList 
+          alerts={filteredAlerts}
+          onMarkRead={(id) => {
+            setAlerts(alerts.map(alert => 
+              alert.id === id ? { ...alert, status: "read" } : alert
+            ));
+          }}
+        />
+
+        {/* Mobile actions - adjusted to be above bottom nav */}
+        <div className="fixed bottom-16 left-4 right-4 flex gap-2 sm:hidden">
+          <Button
+            className="flex-1"
+            variant="outline"
+            onClick={handleMarkAllRead}
+            disabled={unreadCount === 0}
           >
-            <SelectTrigger className="w-[140px]">
-              <Filter className="h-4 w-4 mr-2" />
-              <SelectValue placeholder="Filter" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All</SelectItem>
-              <SelectItem value="task_opportunity">Tasks</SelectItem>
-              <SelectItem value="payment">Payments</SelectItem>
-              <SelectItem value="achievement">Achievements</SelectItem>
-              <SelectItem value="review">Reviews</SelectItem>
-            </SelectContent>
-          </Select>
+            <Check className="h-4 w-4 mr-2" />
+            Mark all read
+          </Button>
+          <Button
+            className="flex-1"
+            variant="outline"
+            onClick={handleClearAll}
+            disabled={alerts.length === 0}
+          >
+            Clear all
+          </Button>
         </div>
       </div>
 
-      <AlertsList 
-        alerts={filteredAlerts}
-        onMarkRead={(id) => {
-          setAlerts(alerts.map(alert => 
-            alert.id === id ? { ...alert, status: "read" } : alert
-          ));
-        }}
-      />
-
-      {/* Mobile actions */}
-      <div className="fixed bottom-4 left-4 right-4 flex gap-2 sm:hidden">
-        <Button
-          className="flex-1"
-          variant="outline"
-          onClick={handleMarkAllRead}
-          disabled={unreadCount === 0}
-        >
-          <Check className="h-4 w-4 mr-2" />
-          Mark all read
-        </Button>
-        <Button
-          className="flex-1"
-          variant="outline"
-          onClick={handleClearAll}
-          disabled={alerts.length === 0}
-        >
-          Clear all
-        </Button>
-      </div>
+      <BottomNav />
     </div>
   );
 };
