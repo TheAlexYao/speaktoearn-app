@@ -39,7 +39,7 @@ export const LanguageExpertise = () => {
 
       <div className="space-y-4">
         {languages.map((lang) => (
-          <Card key={lang.language} className="hover:shadow-xl transition-all duration-300 bg-primary/10 backdrop-blur-sm border border-white/10">
+          <Card key={lang.language} className="hover:shadow-xl transition-all duration-300">
             <CardContent className="p-5">
               <div className="flex items-start justify-between mb-4">
                 <div>
