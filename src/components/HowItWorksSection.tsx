@@ -1,5 +1,6 @@
 
 import { Wallet, Mic, CheckCircle, DollarSign } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 const steps = [
   {
@@ -41,7 +42,7 @@ export const HowItWorksSection = () => {
           {steps.map((step, index) => (
             <div
               key={step.title}
-              className="flex-none w-[280px] snap-center bg-white rounded-lg p-6 card-shadow"
+              className="flex-none w-[280px] snap-center bg-white rounded-lg p-6 shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.12)] transition-all duration-300 hover:translate-y-[-4px]"
             >
               <div className="bg-primary/10 rounded-full p-3 w-fit mb-4">
                 <step.icon className="w-6 h-6 text-primary" />
@@ -51,6 +52,13 @@ export const HowItWorksSection = () => {
               <p className="text-sm font-medium text-primary">{step.stats}</p>
             </div>
           ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <button className="gradient-bg text-white px-8 py-3 rounded-full font-medium flex items-center gap-2 mx-auto hover:shadow-lg transition-all duration-300">
+            Start Contributing Now
+            <ArrowRight className="w-4 h-4" />
+          </button>
         </div>
       </div>
     </section>
