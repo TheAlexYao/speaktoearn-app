@@ -14,10 +14,9 @@ import Profile from "./pages/Profile";
 import Alerts from "./pages/Alerts";
 import Chat from "./pages/Chat";
 import NotFound from "./pages/NotFound";
-import { client } from "@/lib/thirdweb";
 
 const App = () => (
-  <ThirdwebProvider client={client}>
+  <ThirdwebProvider>
     <TooltipProvider>
       <BrowserRouter>
         <Toaster />
