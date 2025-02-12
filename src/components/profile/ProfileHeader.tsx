@@ -50,7 +50,7 @@ export const ProfileHeader = () => {
 
   return (
     <div className="mb-8 animate-fade-up" style={{ animationDelay: '0ms' }}>
-      <Card className="bg-gradient-to-r from-primary/10 to-secondary/10 border-white/20 backdrop-blur-sm">
+      <Card className="bg-gradient-to-r from-primary/20 to-secondary/20 border-primary/20">
         <div className="p-4 sm:p-6">
           <div className="flex items-start justify-between mb-6">
             <div>
@@ -58,7 +58,7 @@ export const ProfileHeader = () => {
               <div className="flex items-center gap-2 mt-1">
                 <button 
                   onClick={copyWalletAddress}
-                  className="text-sm text-white/80 flex items-center gap-1 hover:text-white transition-colors"
+                  className="text-sm text-white/90 flex items-center gap-1 hover:text-white transition-colors"
                 >
                   {walletAddress}
                   <Copy className="w-4 h-4" />
@@ -71,13 +71,13 @@ export const ProfileHeader = () => {
           </div>
 
           <div className="grid grid-cols-2 gap-4 mb-6">
-            <div className="bg-white/90 rounded-lg p-4 shadow-sm">
-              <div className="text-lg font-semibold text-gray-900">342 CUSD</div>
-              <div className="text-sm text-gray-600">Total Earned</div>
+            <div className="bg-primary/10 backdrop-blur-sm rounded-lg p-4 shadow-sm border border-white/10">
+              <div className="text-lg font-semibold text-white">342 CUSD</div>
+              <div className="text-sm text-white/80">Total Earned</div>
             </div>
-            <div className="bg-white/90 rounded-lg p-4 shadow-sm">
-              <div className="text-lg font-semibold text-gray-900">24.5 CUSD</div>
-              <div className="text-sm text-gray-600">Available</div>
+            <div className="bg-primary/10 backdrop-blur-sm rounded-lg p-4 shadow-sm border border-white/10">
+              <div className="text-lg font-semibold text-white">24.5 CUSD</div>
+              <div className="text-sm text-white/80">Available</div>
             </div>
           </div>
 
@@ -109,19 +109,19 @@ export const ProfileHeader = () => {
                 {recentTransactions.map((transaction, index) => (
                   <div 
                     key={index}
-                    className="flex items-center justify-between p-3 bg-white/90 rounded-lg shadow-sm"
+                    className="flex items-center justify-between p-3 bg-primary/10 backdrop-blur-sm rounded-lg shadow-sm border border-white/10"
                   >
                     <div className="flex flex-col">
-                      <span className="text-sm font-medium text-gray-900">
+                      <span className="text-sm font-medium text-white">
                         {transaction.type === 'withdrawal' ? 'Withdrawal' : 'Task Payment'}
                       </span>
-                      <span className="text-xs text-gray-500">
+                      <span className="text-xs text-white/70">
                         {new Date(transaction.date).toLocaleDateString()}
                       </span>
                     </div>
                     <span className={cn(
                       "text-sm font-medium",
-                      transaction.amount.startsWith('+') ? 'text-success-500' : 'text-primary'
+                      transaction.amount.startsWith('+') ? 'text-white' : 'text-white/90'
                     )}>
                       {transaction.amount}
                     </span>
