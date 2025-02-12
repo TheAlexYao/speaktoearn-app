@@ -13,7 +13,7 @@ export const BottomNav = () => {
     {
       icon: Wallet,
       label: "Earn",
-      path: "/wallet",
+      path: "/earn",
     },
     {
       icon: MessageCircle,
