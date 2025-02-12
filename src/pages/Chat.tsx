@@ -8,7 +8,7 @@ import { GradientContainer } from "@/components/GradientContainer";
 import { BottomNav } from "@/components/BottomNav";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Play } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 type ChatState = "welcome" | "task" | "recording" | "review" | "follow_up" | "completion";
@@ -33,6 +33,11 @@ export default function Chat() {
 
   const handleSubmitRecording = () => {
     setChatState("completion");
+  };
+
+  const handlePlayRecording = () => {
+    // In a real implementation, this would play the recorded audio
+    console.log("Playing recording...");
   };
   
   return (
@@ -64,13 +69,23 @@ export default function Chat() {
                 <div className="space-y-6">
                   <div className="text-center">
                     <p className="text-gray-600 mb-2">Recording Duration: 0:15</p>
-                    <Button 
-                      variant="outline" 
-                      className="w-full sm:w-auto mb-4"
-                      onClick={() => setChatState("recording")}
-                    >
-                      Record Again
-                    </Button>
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
+                      <Button 
+                        variant="outline" 
+                        className="w-full sm:w-auto"
+                        onClick={handlePlayRecording}
+                      >
+                        <Play className="w-4 h-4 mr-2" />
+                        Play Recording
+                      </Button>
+                      <Button 
+                        variant="outline" 
+                        className="w-full sm:w-auto"
+                        onClick={() => setChatState("recording")}
+                      >
+                        Record Again
+                      </Button>
+                    </div>
                   </div>
                   <Button 
                     className="w-full" 
