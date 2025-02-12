@@ -1,7 +1,7 @@
 
 import { GradientContainer } from "@/components/GradientContainer";
 import { useNavigate } from "react-router-dom";
-import { ConnectWallet } from "thirdweb/react";
+import { ConnectEmbed } from "thirdweb/react";
 
 const ConnectWalletPage = () => {
   const navigate = useNavigate();
@@ -21,7 +21,7 @@ const ConnectWalletPage = () => {
           </div>
 
           <div className="px-3 md:p-4">
-            <ConnectWallet />
+            <ConnectEmbed theme="dark" />
           </div>
         </div>
       </div>
