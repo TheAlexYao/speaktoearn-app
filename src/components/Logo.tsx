@@ -11,7 +11,7 @@ export const Logo = () => {
           </div>
         </div>
       </div>
-      <span className="font-bold text-2xl md:text-3xl text-white hover:scale-105 transition-all duration-300 hover:drop-shadow-[0_0_30px_rgba(255,255,255,0.3)]">
+      <span className="font-bold text-2xl md:text-3xl bg-gradient-to-r from-[#6366F1] via-[#8B5CF6] to-[#0EA5E9] bg-clip-text text-transparent hover:scale-105 transition-all duration-300 hover:drop-shadow-[0_0_30px_rgba(99,102,241,0.3)]">
         SpeakToEarn
       </span>
     </div>;
