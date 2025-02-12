@@ -30,10 +30,10 @@ export const AlertItem = ({ alert, onMarkRead }: AlertItemProps) => {
   return (
     <Card 
       className={cn(
-        "mb-3 p-4 transition-all hover:shadow-md",
+        "mb-3 p-4 transition-all hover:shadow-md glass-card",
         priorityStyles[alert.priority],
         alert.status === "read" ? "opacity-75" : "opacity-100",
-        alert.pinned && "bg-muted/50"
+        alert.pinned && "bg-white/5"
       )}
     >
       <div className="flex items-start gap-4">
@@ -50,10 +50,10 @@ export const AlertItem = ({ alert, onMarkRead }: AlertItemProps) => {
         <div className="flex-1">
           <div className="flex items-start justify-between">
             <div>
-              <h3 className="font-semibold text-foreground">
+              <h3 className="font-semibold text-white">
                 {alert.title}
               </h3>
-              <p className="text-sm text-muted-foreground mt-1">
+              <p className="text-sm text-white/80 mt-1">
                 {alert.description}
               </p>
               {alert.metadata?.reward && (
@@ -62,7 +62,7 @@ export const AlertItem = ({ alert, onMarkRead }: AlertItemProps) => {
                 </span>
               )}
             </div>
-            <span className="text-xs text-muted-foreground">
+            <span className="text-xs text-white/60">
               {new Date(alert.timePosted).toLocaleDateString()}
             </span>
           </div>
@@ -72,8 +72,9 @@ export const AlertItem = ({ alert, onMarkRead }: AlertItemProps) => {
               {alert.actions.primary && (
                 <Button 
                   asChild
-                  variant={alert.priority === "urgent" ? "destructive" : "default"}
+                  variant={alert.priority === "urgent" ? "destructive" : "secondary"}
                   size="sm"
+                  className="hover:bg-white/20"
                 >
                   <Link to={alert.actions.primary.href}>
                     {alert.actions.primary.label}
@@ -84,6 +85,7 @@ export const AlertItem = ({ alert, onMarkRead }: AlertItemProps) => {
                 <Button
                   variant="outline"
                   size="sm"
+                  className="bg-white/10 hover:bg-white/20 text-white border-white/20"
                   onClick={alert.actions.secondary.action}
                 >
                   {alert.actions.secondary.label}
