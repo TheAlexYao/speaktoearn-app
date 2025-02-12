@@ -33,7 +33,7 @@ export const Achievements = () => {
       <div className="flex items-center justify-between mb-4">
         <div>
           <h2 className="text-xl font-bold text-gray-900">Achievements</h2>
-          <p className="text-sm text-gray-500">Your earned badges and ongoing challenges</p>
+          <p className="text-sm text-gray-600">Your earned badges and ongoing challenges</p>
         </div>
       </div>
 
@@ -42,7 +42,7 @@ export const Achievements = () => {
           <Card 
             key={achievement.title}
             className={cn(
-              "flex-shrink-0 w-[280px] hover:shadow-lg transition-shadow",
+              "flex-shrink-0 w-[280px] hover:shadow-lg transition-shadow bg-white",
               achievement.completed ? "bg-gradient-to-br from-primary/5 to-secondary/5" : ""
             )}
           >
@@ -50,8 +50,8 @@ export const Achievements = () => {
               <div className="flex items-start gap-3">
                 <div className="text-2xl">{achievement.icon}</div>
                 <div>
-                  <div className="font-medium">{achievement.title}</div>
-                  <div className="text-sm text-gray-500">{achievement.description}</div>
+                  <div className="font-medium text-gray-900">{achievement.title}</div>
+                  <div className="text-sm text-gray-600">{achievement.description}</div>
                   {!achievement.completed && (
                     <div className="mt-2">
                       <Progress value={achievement.progress} className="h-1" />
