@@ -14,7 +14,7 @@ const iconMap = {
 };
 
 const priorityStyles = {
-  urgent: "border-l-4 border-destructive bg-destructive/5 animate-pulse",
+  urgent: "border-l-4 border-destructive bg-destructive/10 animate-pulse",
   normal: "border-l-4 border-primary",
   low: "border-l-4 border-muted-foreground",
 };
@@ -30,9 +30,10 @@ export const AlertItem = ({ alert, onMarkRead }: AlertItemProps) => {
   return (
     <Card 
       className={cn(
-        "mb-3 p-4 transition-all hover:shadow-md bg-white shadow-lg",
+        "mb-3 p-4 transition-all hover:shadow-md shadow-lg",
         priorityStyles[alert.priority],
         alert.status === "read" ? "opacity-90" : "opacity-100",
+        alert.priority === "urgent" ? "bg-destructive/5" : "bg-white",
         alert.pinned && "bg-white"
       )}
     >
@@ -50,10 +51,16 @@ export const AlertItem = ({ alert, onMarkRead }: AlertItemProps) => {
         <div className="flex-1">
           <div className="flex items-start justify-between">
             <div>
-              <h3 className="font-semibold text-gray-900">
+              <h3 className={cn(
+                "font-semibold",
+                alert.priority === "urgent" ? "text-destructive" : "text-gray-900"
+              )}>
                 {alert.title}
               </h3>
-              <p className="text-sm text-gray-600 mt-1">
+              <p className={cn(
+                "text-sm mt-1",
+                alert.priority === "urgent" ? "text-destructive/90" : "text-gray-600"
+              )}>
                 {alert.description}
               </p>
               {alert.metadata?.reward && (
