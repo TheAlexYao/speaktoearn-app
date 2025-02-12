@@ -1,12 +1,12 @@
 
 export const Logo = () => {
   return (
-    <div className="flex items-center gap-3 hover:scale-105 transition-transform duration-300">
+    <div className="flex items-center gap-3">
       <div className="relative w-12 h-12">
         {/* Outer diamond shape with top-down bright gradient */}
-        <div className="absolute inset-0 rounded-2xl bg-gradient-to-b from-[#4F46E5] via-[#7C3AED] to-[#8B5CF6] flex items-center justify-center shadow-lg hover:shadow-2xl transition-shadow duration-300 rotate-45">
+        <div className="absolute inset-0 rounded-2xl bg-gradient-to-b from-[#0EA5E9] via-[#0284C7] to-[#0369A1] flex items-center justify-center shadow-lg rotate-45">
           {/* Inner circle with bottom-up gradient */}
-          <div className="w-8 h-8 rounded-full bg-gradient-to-t from-[#4F46E5] via-[#7C3AED] to-[#8B5CF6] flex items-center justify-center transform -rotate-45 border border-white/10">
+          <div className="w-8 h-8 rounded-full bg-gradient-to-t from-[#0EA5E9] via-[#0284C7] to-[#0369A1] flex items-center justify-center transform -rotate-45 border border-white/10">
             <span className="text-white font-bold text-xl select-none">S</span>
           </div>
         </div>
