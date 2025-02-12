@@ -7,7 +7,7 @@ export const Logo = () => {
           {/* Inner diamond with glass morphism and sophisticated gradient */}
           <div className="w-7 h-7 rounded-xl bg-[#0EA5E9] flex items-center justify-center transform backdrop-blur-sm border border-white/40 shadow-inner hover:border-white/60 transition-all duration-300">
             {/* Letter with enhanced visibility and 3D effect */}
-            <span className="font-bold text-xl select-none text-white -rotate-90 drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)] hover:scale-110 transition-transform duration-300">S</span>
+            <span className="font-bold text-xl select-none text-white -rotate-[45deg] drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)] hover:scale-110 transition-transform duration-300">S</span>
           </div>
         </div>
       </div>
