@@ -14,9 +14,10 @@ import Profile from "./pages/Profile";
 import Alerts from "./pages/Alerts";
 import Chat from "./pages/Chat";
 import NotFound from "./pages/NotFound";
+import { client, celoAlfajores } from "@/lib/thirdweb";
 
 const App = () => (
-  <ThirdwebProvider>
+  <ThirdwebProvider client={client} activeChain={celoAlfajores}>
     <TooltipProvider>
       <BrowserRouter>
         <Toaster />
@@ -39,3 +40,4 @@ const App = () => (
 );
 
 export default App;
+
