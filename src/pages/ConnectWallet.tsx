@@ -17,7 +17,7 @@ const ConnectWallet = () => {
       <div className="absolute inset-0">
         {/* Navigation */}
         <nav className="w-full px-6 py-6 md:px-8 md:py-8">
-          <div className="max-w-7xl mx-auto">
+          <div className="max-w-7xl mx-auto flex justify-center">
             <Logo />
           </div>
         </nav>
