@@ -1,6 +1,7 @@
 
 import { ArrowRight, Globe, Users, Mic, Database } from "lucide-react";
 import { Logo } from "./Logo";
+import { useNavigate } from "react-router-dom";
 
 const stats = [
   {
@@ -24,6 +25,8 @@ const stats = [
 ];
 
 export const HeroSection = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="relative min-h-screen pt-24 pb-20 px-4 overflow-hidden">
       {/* Animated background shapes */}
@@ -76,7 +79,10 @@ export const HeroSection = () => {
         </div>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-up">
-          <button className="w-full sm:w-auto gradient-bg text-white px-8 py-4 rounded-full font-medium flex items-center justify-center gap-2 shadow-lg hover:shadow-2xl transition-all duration-300">
+          <button 
+            onClick={() => navigate('/connect-wallet')}
+            className="w-full sm:w-auto gradient-bg text-white px-8 py-4 rounded-full font-medium flex items-center justify-center gap-2 shadow-lg hover:shadow-2xl transition-all duration-300"
+          >
             Connect Wallet to Start Earning
             <ArrowRight className="w-4 h-4" />
           </button>

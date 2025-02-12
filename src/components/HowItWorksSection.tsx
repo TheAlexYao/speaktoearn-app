@@ -1,6 +1,7 @@
 
 import { Wallet, Mic, CheckCircle, DollarSign } from "lucide-react";
 import { ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const steps = [
   {
@@ -30,6 +31,8 @@ const steps = [
 ];
 
 export const HowItWorksSection = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="py-16 px-4">
       <div className="max-w-4xl mx-auto">
@@ -55,7 +58,10 @@ export const HowItWorksSection = () => {
         </div>
 
         <div className="mt-12 text-center">
-          <button className="gradient-bg text-white px-8 py-3 rounded-full font-medium flex items-center gap-2 mx-auto hover:shadow-lg transition-all duration-300">
+          <button 
+            onClick={() => navigate('/connect-wallet')}
+            className="gradient-bg text-white px-8 py-3 rounded-full font-medium flex items-center gap-2 mx-auto hover:shadow-lg transition-all duration-300"
+          >
             Start Contributing Now
             <ArrowRight className="w-4 h-4" />
           </button>

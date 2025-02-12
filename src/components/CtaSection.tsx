@@ -1,7 +1,10 @@
 
 import { ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export const CtaSection = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="py-16 px-4">
       <div className="max-w-4xl mx-auto text-center">
@@ -10,7 +13,10 @@ export const CtaSection = () => {
           Join our global community of language contributors and start earning rewards for your skills.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button className="gradient-bg text-white px-8 py-3 rounded-full font-medium flex items-center gap-2 justify-center hover:opacity-90 transition-opacity">
+          <button 
+            onClick={() => navigate('/connect-wallet')}
+            className="gradient-bg text-white px-8 py-3 rounded-full font-medium flex items-center gap-2 justify-center hover:opacity-90 transition-opacity"
+          >
             Start Earning Now
             <ArrowRight className="w-4 h-4" />
           </button>
