@@ -32,8 +32,8 @@ export const Achievements = () => {
     <div className="mb-20 animate-fade-up" style={{ animationDelay: '400ms' }}>
       <div className="flex items-center justify-between mb-4">
         <div>
-          <h2 className="text-xl font-bold text-gray-900">Achievements</h2>
-          <p className="text-sm text-gray-600">Your earned badges and ongoing challenges</p>
+          <h2 className="text-xl font-bold text-white">Achievements</h2>
+          <p className="text-sm text-white/80">Your earned badges and ongoing challenges</p>
         </div>
       </div>
 

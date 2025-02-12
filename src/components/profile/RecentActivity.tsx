@@ -45,20 +45,20 @@ export const RecentActivity = () => {
     <div className="mb-8 animate-fade-up" style={{ animationDelay: '300ms' }}>
       <div className="flex items-center justify-between mb-4">
         <div>
-          <h2 className="text-xl font-bold text-gray-900">Recent Activity</h2>
-          <p className="text-sm text-gray-500">Your latest completed tasks</p>
+          <h2 className="text-xl font-bold text-white">Recent Activity</h2>
+          <p className="text-sm text-white/80">Your latest completed tasks</p>
         </div>
       </div>
 
       <div className="space-y-6">
         {activities.map((day) => (
           <div key={day.date}>
-            <h3 className="text-sm font-medium text-gray-500 mb-3">{day.date}</h3>
+            <h3 className="text-sm font-medium text-white/80 mb-3">{day.date}</h3>
             <div className="space-y-3">
               {day.tasks.map((task, index) => {
                 const Icon = task.icon;
                 return (
-                  <Card key={index} className="hover:shadow-lg transition-shadow">
+                  <Card key={index} className="hover:shadow-lg transition-shadow bg-white">
                     <CardContent className="p-4">
                       <div className="flex items-start justify-between">
                         <div className="flex items-start gap-3">
@@ -66,9 +66,9 @@ export const RecentActivity = () => {
                             <Icon className="w-4 h-4" />
                           </div>
                           <div>
-                            <div className="font-medium">{task.type}</div>
-                            <div className="text-sm text-gray-500">{task.description}</div>
-                            <div className="text-xs text-gray-400 mt-1">
+                            <div className="font-medium text-gray-900">{task.type}</div>
+                            <div className="text-sm text-gray-600">{task.description}</div>
+                            <div className="text-xs text-gray-500 mt-1">
                               {formatDistanceToNow(task.time, { addSuffix: true })}
                             </div>
                           </div>

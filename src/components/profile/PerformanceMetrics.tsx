@@ -39,8 +39,8 @@ export const PerformanceMetrics = () => {
     <div className="mb-8 animate-fade-up" style={{ animationDelay: '200ms' }}>
       <div className="flex items-center justify-between mb-4">
         <div>
-          <h2 className="text-xl font-bold text-gray-900">Performance</h2>
-          <p className="text-sm text-gray-600">Your activity metrics</p>
+          <h2 className="text-xl font-bold text-white">Performance</h2>
+          <p className="text-sm text-white/80">Your activity metrics</p>
         </div>
       </div>
 
