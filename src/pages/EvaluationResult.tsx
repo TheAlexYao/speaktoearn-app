@@ -12,7 +12,8 @@ const EvaluationResult = () => {
   const score = parseInt(searchParams.get("score") || "0");
   const feedback = searchParams.get("feedback") || "";
   const taskId = searchParams.get("taskId") || "";
-  const passed = score >= 70; // Consider scores 70 and above as passing
+  const txHash = searchParams.get("txHash") || "";
+  const passed = score >= 70;
 
   const handleTryAgain = () => {
     navigate(`/task/${taskId}`);
@@ -66,6 +67,17 @@ const EvaluationResult = () => {
                   </h2>
                   <p className="text-gray-600">
                     {feedback}
+                  </p>
+                </div>
+              )}
+
+              {passed && txHash && (
+                <div className="bg-success/5 border border-success/20 p-4 rounded-lg">
+                  <h2 className="font-semibold text-success mb-2">
+                    Payment Successful
+                  </h2>
+                  <p className="text-sm text-gray-600 break-all">
+                    Transaction Hash: {txHash}
                   </p>
                 </div>
               )}

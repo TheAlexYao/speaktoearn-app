@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { GradientContainer } from "@/components/GradientContainer";
 import { ArrowLeft } from "lucide-react";
+import { toast } from "sonner";
 
 const TASK_DATA = {
   paraphrase: {
@@ -27,6 +28,7 @@ const TaskDetail = () => {
   const { taskId } = useParams();
   const navigate = useNavigate();
   const [paraphrase, setParaphrase] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   
   const taskData = TASK_DATA[taskId as keyof typeof TASK_DATA];
   
@@ -43,17 +45,40 @@ const TaskDetail = () => {
     );
   }
 
-  const handleSubmit = () => {
-    // Simulate evaluation - in a real app, this would be an API call
-    const score = Math.floor(Math.random() * 30) + 70; // Random score between 70-100
-    const feedbackMessages = {
-      paraphrase: "Your paraphrase is clear and accurate, but consider varying the sentence structure slightly for better fluency.",
-      factual: "Good correction and explanation. Your response accurately identifies and explains the error.",
-    };
-    
-    // Redirect to evaluation result page with the score and feedback
-    const feedback = taskId && feedbackMessages[taskId as keyof typeof feedbackMessages];
-    navigate(`/evaluation?score=${score}&feedback=${encodeURIComponent(feedback || "")}&taskId=${taskId}`);
+  const handleSubmit = async () => {
+    setIsSubmitting(true);
+    toast.info("Submitting your response...");
+
+    try {
+      // Simulate API call delay
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      
+      // Simulate evaluation
+      const score = Math.floor(Math.random() * 30) + 70;
+      const feedbackMessages = {
+        paraphrase: "Your paraphrase is clear and accurate, but consider varying the sentence structure slightly for better fluency.",
+        factual: "Good correction and explanation. Your response accurately identifies and explains the error.",
+      };
+      
+      const feedback = taskId && feedbackMessages[taskId as keyof typeof feedbackMessages];
+      
+      // Simulate successful evaluation
+      toast.success("Evaluation complete!");
+      
+      if (score >= 70) {
+        toast.success(`Task passed! Processing reward of ${taskData.reward}...`);
+      }
+
+      // Simulate blockchain delay
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
+      // Navigate to result page with transaction data
+      navigate(`/evaluation?score=${score}&feedback=${encodeURIComponent(feedback || "")}&taskId=${taskId}&txHash=${encodeURIComponent("0x123...abc")}`);
+    } catch (error) {
+      toast.error("Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleClear = () => {
@@ -134,12 +159,14 @@ const TaskDetail = () => {
                   <Button 
                     onClick={handleSubmit}
                     className="flex-1"
+                    disabled={isSubmitting || !paraphrase.trim()}
                   >
-                    Submit
+                    {isSubmitting ? "Submitting..." : "Submit"}
                   </Button>
                   <Button 
                     variant="outline" 
                     onClick={handleClear}
+                    disabled={isSubmitting}
                   >
                     Clear
                   </Button>
