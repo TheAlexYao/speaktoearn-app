@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Alert, AlertType } from "@/types/alert";
 import { AlertsList } from "@/components/alerts/AlertsList";
@@ -9,7 +10,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Bell, Check, Filter } from "lucide-react";
+import { Bell, Check, Filter, Trash2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { BottomNav } from "@/components/BottomNav";
 import { GradientContainer } from "@/components/GradientContainer";
@@ -114,16 +115,26 @@ const Alerts = () => {
             </div>
 
             <div className="flex items-center gap-3">
-              <div className="hidden sm:block">
+              <div className="hidden sm:flex gap-2">
                 <Button
                   variant="secondary"
                   size="sm"
                   onClick={handleMarkAllRead}
                   disabled={unreadCount === 0}
-                  className="bg-white/20 hover:bg-white/30 text-white"
+                  className="bg-[#9b87f5] hover:bg-[#7E69AB] text-white"
                 >
                   <Check className="h-4 w-4 mr-2" />
                   Mark all read
+                </Button>
+                <Button
+                  variant="secondary"
+                  size="sm"
+                  onClick={handleClearAll}
+                  disabled={alerts.length === 0}
+                  className="bg-[#9b87f5] hover:bg-[#7E69AB] text-white"
+                >
+                  <Trash2 className="h-4 w-4 mr-2" />
+                  Clear all
                 </Button>
               </div>
               
@@ -131,7 +142,7 @@ const Alerts = () => {
                 value={filter}
                 onValueChange={(value) => setFilter(value as AlertType | "all")}
               >
-                <SelectTrigger className="w-[140px] bg-white/20 hover:bg-white/30 text-white border-white/20">
+                <SelectTrigger className="w-[140px] bg-white border-none text-gray-900">
                   <Filter className="h-4 w-4 mr-2" />
                   <SelectValue placeholder="Filter" />
                 </SelectTrigger>
@@ -155,10 +166,10 @@ const Alerts = () => {
             }}
           />
 
-          {/* Mobile actions */}
-          <div className="fixed bottom-16 left-4 right-4 flex gap-2 sm:hidden">
+          {/* Mobile actions - fixed at bottom */}
+          <div className="fixed bottom-20 left-4 right-4 flex gap-2 sm:hidden z-50">
             <Button
-              className="flex-1 bg-white/20 hover:bg-white/30 text-white"
+              className="flex-1 bg-[#9b87f5] hover:bg-[#7E69AB] text-white"
               variant="secondary"
               onClick={handleMarkAllRead}
               disabled={unreadCount === 0}
@@ -167,11 +178,12 @@ const Alerts = () => {
               Mark all read
             </Button>
             <Button
-              className="flex-1 bg-white/20 hover:bg-white/30 text-white"
+              className="flex-1 bg-[#9b87f5] hover:bg-[#7E69AB] text-white"
               variant="secondary"
               onClick={handleClearAll}
               disabled={alerts.length === 0}
             >
+              <Trash2 className="h-4 w-4 mr-2" />
               Clear all
             </Button>
           </div>
