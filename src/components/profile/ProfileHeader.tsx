@@ -56,7 +56,7 @@ export const ProfileHeader = () => {
           <div className="flex items-start gap-6 mb-6">
             <Avatar className="h-16 w-16 border border-primary/20 shadow-sm">
               <AvatarImage 
-                src="/aisha-profile.webp" 
+                src="/placeholder.svg" 
                 alt="Aisha M." 
                 className="object-cover"
               />
