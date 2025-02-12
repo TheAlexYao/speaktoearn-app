@@ -1,7 +1,6 @@
 
 import { GradientContainer } from "@/components/GradientContainer";
 import { useNavigate } from "react-router-dom";
-import { ConnectButton } from "thirdweb/react";
 
 const ConnectWalletPage = () => {
   const navigate = useNavigate();
@@ -18,13 +17,6 @@ const ConnectWalletPage = () => {
             <p className="text-base md:text-lg text-white/90 animate-fade-up drop-shadow">
               Join our community and start earning by preserving languages
             </p>
-          </div>
-
-          <div className="px-3 md:p-4">
-            <ConnectButton
-              theme="dark"
-              className="w-full"
-            />
           </div>
         </div>
       </div>
