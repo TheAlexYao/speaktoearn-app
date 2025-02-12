@@ -14,61 +14,67 @@ const TASKS_DATA = {
     reward: "8 CUSD",
     time: "5-10 mins",
     difficulty: "Medium",
-    description: "Help create a medical pronunciation database",
+    description: "Help create a medical pronunciation database by recording key medical terms in Bengali. Your voice will help healthcare providers better communicate with patients.",
   },
   tasks: [
     {
       type: "voice",
-      title: "Daily Conversations",
+      title: "Basic Conversation Phrases",
       language: "Swahili",
       reward: "5 CUSD",
       time: "5 mins",
       difficulty: "Easy",
+      description: "Record everyday conversational phrases to help build a natural speech database",
       icon: Mic,
     },
     {
       type: "voice",
-      title: "Emergency Phrases",
+      title: "Emergency Response Terms",
       language: "Hindi",
       reward: "6 CUSD",
       time: "7 mins",
       difficulty: "Easy",
+      description: "Record emergency and safety-related terms to aid in crisis communication",
       icon: Mic,
     },
     {
       type: "translation",
-      title: "Medical Terms",
+      title: "Healthcare Documents",
       language: "Bengali → English",
       reward: "7 CUSD",
       time: "10 mins",
       difficulty: "Medium",
+      description: "Translate medical consent forms while preserving cultural context",
       icon: Languages,
     },
     {
       type: "translation",
-      title: "Legal Documents",
+      title: "Legal Aid Materials",
       language: "Spanish → English",
       reward: "12 CUSD",
       time: "15 mins",
       difficulty: "Hard",
+      description: "Help translate legal aid documents with attention to technical terminology",
       icon: Languages,
     },
     {
       type: "review",
-      title: "Voice Quality Check",
+      title: "Accent Verification",
       language: "Kurdish",
       reward: "3 CUSD",
       time: "3 mins",
       difficulty: "Easy",
+      description: "Review recorded clips for proper accent and pronunciation",
       icon: CheckCircle2,
     },
     {
       type: "review",
-      title: "Translation Review",
+      title: "Cultural Context Check",
       language: "Arabic → English",
       reward: "4 CUSD",
       time: "5 mins",
       difficulty: "Medium",
+      description: "Verify translations maintain cultural accuracy and proper context",
       icon: CheckCircle2,
     },
   ],
@@ -172,7 +178,8 @@ const Tasks = () => {
                         <Icon className="w-4 h-4 text-primary" />
                         <h3 className="font-semibold text-gray-900">{task.title}</h3>
                       </div>
-                      <p className="text-sm text-gray-500">{task.language}</p>
+                      <p className="text-sm text-gray-500 mb-2">{task.language}</p>
+                      <p className="text-sm text-gray-600">{task.description}</p>
                     </div>
                     <span className="text-sm font-medium text-primary">{task.reward}</span>
                   </div>
