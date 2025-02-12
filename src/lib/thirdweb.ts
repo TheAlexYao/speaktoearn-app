@@ -1,15 +1,23 @@
 
 import { createThirdwebClient } from "thirdweb";
 import { defineChain } from "thirdweb/chains";
-import {
-  coinbaseWallet,
-  metamaskWallet,
-  walletConnect,
-} from "@thirdweb-dev/wallets";
+import { createWallet } from "thirdweb/wallets";
 
 // Define Celo Alfajores testnet
 export const celoAlfajores = defineChain({
   id: 44787,
+  rpc: ["https://alfajores-forno.celo-testnet.org"],
+  nativeCurrency: {
+    decimals: 18,
+    name: "CELO",
+    symbol: "CELO",
+  },
+  shortName: "alfajores",
+  slug: "celo-alfajores",
+  testnet: true,
+  chain: "Celo",
+  name: "Celo Alfajores Testnet",
+  chainId: 44787,
 });
 
 // Create the client with minimal configuration and Celo chain
@@ -19,7 +27,9 @@ export const client = createThirdwebClient({
 
 // Configure available wallets
 export const wallets = [
-  metamaskWallet(),
-  coinbaseWallet(),
-  walletConnect(),
+  createWallet("io.metamask"),
+  createWallet("com.coinbase.wallet"),
+  createWallet("me.rainbow"),
+  createWallet("io.rabby"),
+  createWallet("io.zerion.wallet"),
 ];
