@@ -68,6 +68,7 @@ export const StatsSection = () => {
                   label: "Contributions",
                   theme: {
                     light: "#4F46E5",
+                    dark: "#818CF8"
                   },
                 },
               }}
