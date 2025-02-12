@@ -5,7 +5,7 @@ import { Chain } from "thirdweb/chains";
 
 // Define Celo Alfajores chain
 export const celoAlfajores: Chain = {
-  chainId: 44787,
+  id: 44787,
   name: "Celo Alfajores",
   chain: "CELO",
   shortName: "CELO",
@@ -31,9 +31,9 @@ export const client = createThirdwebClient({
 
 // Define supported wallets with correct wallet IDs
 export const supportedWallets = [
-  createWallet("injected"),
-  createWallet("coinbaseWallet"),
-  createWallet("walletConnect"),
+  createWallet("io.metamask"),
+  createWallet("com.coinbase.wallet"),
+  createWallet("walletconnect"),
 ];
 
 // Export chain configuration

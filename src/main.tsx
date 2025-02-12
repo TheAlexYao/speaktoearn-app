@@ -7,7 +7,7 @@ import { supportedWallets, chainConfig, client } from './lib/thirdweb';
 
 createRoot(document.getElementById("root")!).render(
   <ThirdwebProvider 
-    client={client}
+    chain={chainConfig}
     supportedWallets={supportedWallets}
   >
     <App />
