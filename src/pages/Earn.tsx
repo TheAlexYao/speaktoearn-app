@@ -113,10 +113,10 @@ const Earn = () => {
             <div className="flex items-center justify-between mb-6">
               <div>
                 <h2 className="text-2xl font-bold bg-gradient-to-r from-primary via-secondary to-[#8B5CF6] bg-clip-text text-transparent">Quick Actions</h2>
-                <p className="text-sm text-gray-600 mt-1">Continue your earning streak</p>
+                <p className="text-sm text-muted-foreground mt-1">Continue your earning streak</p>
               </div>
               <div className="text-right">
-                <p className="text-sm text-gray-600">Today's Potential</p>
+                <p className="text-sm text-muted-foreground">Today's Potential</p>
                 <p className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">24.5 CUSD</p>
               </div>
             </div>
@@ -124,16 +124,16 @@ const Earn = () => {
             <div className="grid grid-cols-2 gap-4 mb-6">
               <div className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-xl p-4 border border-white/10">
                 <div className="text-xl font-semibold text-primary">7 Days</div>
-                <div className="text-sm text-gray-600">Active Streak</div>
+                <div className="text-sm text-muted-foreground">Active Streak</div>
               </div>
               <div className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-xl p-4 border border-white/10">
                 <div className="text-xl font-semibold text-primary">41</div>
-                <div className="text-sm text-gray-600">Tasks Available</div>
+                <div className="text-sm text-muted-foreground">Tasks Available</div>
               </div>
             </div>
 
             <Button 
-              className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 transition-all duration-300"
+              className="w-full bg-gradient-to-r from-primary to-secondary text-white hover:opacity-90 transition-all duration-300"
               onClick={() => navigate('/tasks')}
             >
               Start Latest Task
@@ -143,8 +143,12 @@ const Earn = () => {
           {/* Task Categories */}
           <div className="mb-8 animate-fade-up" style={{ animationDelay: '100ms' }}>
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl font-bold text-gray-900">Categories</h2>
-              <Button variant="ghost" size="sm" className="text-primary hover:text-secondary transition-colors">
+              <h2 className="text-xl font-bold text-white">Categories</h2>
+              <Button 
+                variant="outline" 
+                size="sm" 
+                className="border border-white/20 text-white hover:bg-white/10 hover:text-white transition-colors"
+              >
                 View All
               </Button>
             </div>
@@ -184,8 +188,12 @@ const Earn = () => {
           {/* Today's Tasks */}
           <div className="mb-8 animate-fade-up" style={{ animationDelay: '200ms' }}>
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl font-bold text-gray-900">Today's Tasks</h2>
-              <Button variant="ghost" size="sm" className="text-primary hover:text-secondary transition-colors">
+              <h2 className="text-xl font-bold text-white">Today's Tasks</h2>
+              <Button 
+                variant="outline" 
+                size="sm" 
+                className="border border-white/20 text-white hover:bg-white/10 hover:text-white transition-colors"
+              >
                 See All Tasks
               </Button>
             </div>
@@ -235,8 +243,12 @@ const Earn = () => {
           {/* Ecosystem Partners */}
           <div className="animate-fade-up" style={{ animationDelay: '300ms' }}>
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl font-bold text-gray-900">Ecosystem Partners</h2>
-              <Button variant="ghost" size="sm" className="text-primary hover:text-secondary transition-colors">
+              <h2 className="text-xl font-bold text-white">Ecosystem Partners</h2>
+              <Button 
+                variant="outline" 
+                size="sm" 
+                className="border border-white/20 text-white hover:bg-white/10 hover:text-white transition-colors"
+              >
                 Explore All
               </Button>
             </div>
