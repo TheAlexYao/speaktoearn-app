@@ -11,6 +11,7 @@ import TaskDetail from "./pages/TaskDetail";
 import EvaluationResult from "./pages/EvaluationResult";
 import Earn from "./pages/Earn";
 import Profile from "./pages/Profile";
+import Alerts from "./pages/Alerts";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -29,6 +30,7 @@ const App = () => (
           <Route path="/evaluation" element={<EvaluationResult />} />
           <Route path="/earn" element={<Earn />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/alerts" element={<Alerts />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
