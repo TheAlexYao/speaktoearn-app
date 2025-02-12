@@ -1,7 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Wave, Play } from "lucide-react";
+import { Waves, Play } from "lucide-react";
 import { useState } from "react";
 
 interface RecordingInterfaceProps {
@@ -43,7 +43,7 @@ export const RecordingInterface = ({ onFinishRecording }: RecordingInterfaceProp
               isRecording ? 'bg-red-500' : 'bg-primary'
             }`}>
               {isRecording ? (
-                <Wave className="w-8 h-8 text-white" />
+                <Waves className="w-8 h-8 text-white" />
               ) : (
                 <Play className="w-8 h-8 text-white" />
               )}
