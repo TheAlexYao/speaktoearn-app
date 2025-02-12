@@ -8,6 +8,8 @@ import { AchievementStreaks } from "@/components/earn/AchievementStreaks";
 import { TaskCategories } from "@/components/earn/TaskCategories";
 import { TodaysTasks } from "@/components/earn/TodaysTasks";
 import { EcosystemPartners } from "@/components/earn/EcosystemPartners";
+import { EducationalContent } from "@/components/earn/EducationalContent";
+import { SkillsCertification } from "@/components/earn/SkillsCertification";
 
 const Earn = () => {
   const navigate = useNavigate();
@@ -29,6 +31,10 @@ const Earn = () => {
           <AchievementStreaks />
 
           <TaskCategories />
+
+          <EducationalContent />
+
+          <SkillsCertification />
 
           <TodaysTasks />
 
