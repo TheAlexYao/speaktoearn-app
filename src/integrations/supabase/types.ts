@@ -9,7 +9,80 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      [_ in never]: never
+      profiles: {
+        Row: {
+          created_at: string | null
+          id: string
+          tasks_completed: number | null
+          total_earned: number | null
+          username: string | null
+          wallet_address: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          id: string
+          tasks_completed?: number | null
+          total_earned?: number | null
+          username?: string | null
+          wallet_address?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          tasks_completed?: number | null
+          total_earned?: number | null
+          username?: string | null
+          wallet_address?: string | null
+        }
+        Relationships: []
+      }
+      task_submissions: {
+        Row: {
+          created_at: string | null
+          feedback: string | null
+          id: string
+          original_text: string
+          response_text: string
+          score: number | null
+          status: string
+          task_type: string
+          transaction_hash: string | null
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          feedback?: string | null
+          id?: string
+          original_text: string
+          response_text: string
+          score?: number | null
+          status?: string
+          task_type: string
+          transaction_hash?: string | null
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          feedback?: string | null
+          id?: string
+          original_text?: string
+          response_text?: string
+          score?: number | null
+          status?: string
+          task_type?: string
+          transaction_hash?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "task_submissions_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
