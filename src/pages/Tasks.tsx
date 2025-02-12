@@ -3,8 +3,9 @@ import { BottomNav } from "@/components/BottomNav";
 import { GradientContainer } from "@/components/GradientContainer";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Trophy, Clock, Star, Mic, Languages, CheckCircle2 } from "lucide-react";
+import { Trophy, Clock, Star, Mic, Languages, CheckCircle2, FileText, Edit } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const TASKS_DATA = {
   featured: {
@@ -17,6 +18,28 @@ const TASKS_DATA = {
     description: "Help create a medical pronunciation database by recording key medical terms in Bengali. Your voice will help healthcare providers better communicate with patients.",
   },
   tasks: [
+    {
+      type: "writing",
+      title: "Paraphrase a Financial Report Sentence",
+      language: "English",
+      reward: "6 CUSD",
+      time: "5 mins",
+      difficulty: "Medium",
+      description: "Rewrite the given sentence in your own words while retaining its meaning. This helps create diverse text variations for our language dataset.",
+      icon: Edit,
+      path: "/task/paraphrase"
+    },
+    {
+      type: "review",
+      title: "Correct a Misstated Fact",
+      language: "English",
+      reward: "7 CUSD",
+      time: "8 mins",
+      difficulty: "Medium",
+      description: "Review a provided statement for factual accuracy. If the information is incorrect, rewrite it with the correct details and include a brief explanation.",
+      icon: FileText,
+      path: "/task/factual"
+    },
     {
       type: "voice",
       title: "Basic Conversation Phrases",
@@ -95,6 +118,8 @@ const Tasks = () => {
         return Languages;
       case "review":
         return CheckCircle2;
+      case "writing":
+        return Edit;
       default:
         return Star;
     }
@@ -128,6 +153,7 @@ const Tasks = () => {
                   <TabsTrigger value="voice">Voice</TabsTrigger>
                   <TabsTrigger value="translation">Translation</TabsTrigger>
                   <TabsTrigger value="review">Review</TabsTrigger>
+                  <TabsTrigger value="writing">Writing</TabsTrigger>
                 </TabsList>
               </Tabs>
             </ScrollArea>
@@ -167,10 +193,12 @@ const Tasks = () => {
           <div className="space-y-4 mb-20">
             {filteredTasks.map((task, index) => {
               const Icon = getTypeIcon(task.type);
+              const TaskWrapper = task.path ? Link : 'div';
               return (
-                <div
+                <TaskWrapper
                   key={index}
-                  className="bg-white rounded-lg p-4 shadow-lg"
+                  to={task.path || '#'}
+                  className="block bg-white rounded-lg p-4 shadow-lg hover:shadow-xl transition-shadow"
                 >
                   <div className="flex justify-between items-start mb-2">
                     <div>
@@ -194,7 +222,7 @@ const Tasks = () => {
                       Start Task
                     </button>
                   </div>
-                </div>
+                </TaskWrapper>
               );
             })}
           </div>
