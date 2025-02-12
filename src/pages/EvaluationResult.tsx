@@ -2,7 +2,7 @@
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { GradientContainer } from "@/components/GradientContainer";
-import { Check, X, ArrowLeft, RotateCcw } from "lucide-react";
+import { Check, X, ArrowLeft, RotateCcw, Wallet } from "lucide-react";
 
 const EvaluationResult = () => {
   const [searchParams] = useSearchParams();
@@ -86,9 +86,19 @@ const EvaluationResult = () => {
                       </p>
                     </>
                   ) : (
-                    <p className="text-sm text-gray-600">
-                      Your submission was successful but no payment was processed as you're not signed in. Sign in to receive rewards for your contributions!
-                    </p>
+                    <div className="space-y-3">
+                      <p className="text-sm text-gray-600">
+                        Connect your wallet to receive rewards for your contributions!
+                      </p>
+                      <Button
+                        onClick={() => navigate("/connect-wallet")}
+                        variant="secondary"
+                        className="w-full sm:w-auto"
+                      >
+                        <Wallet className="w-4 h-4 mr-2" />
+                        Connect Wallet
+                      </Button>
+                    </div>
                   )}
                 </div>
               ) : null}
