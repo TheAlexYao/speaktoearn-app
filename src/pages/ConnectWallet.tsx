@@ -31,7 +31,7 @@ const ConnectWallet = () => {
     try {
       setIsConnecting(true);
       await connect({
-        connector: "walletConnect"
+        walletConnector: "walletConnect"
       });
       
       // Check if we need to switch to Celo network
