@@ -65,22 +65,33 @@ const EvaluationResult = () => {
                   <h2 className="font-semibold text-gray-900 mb-2">
                     Feedback
                   </h2>
-                  <p className="text-gray-600">
+                  <p className="text-gray-600 whitespace-pre-wrap">
                     {feedback}
                   </p>
                 </div>
               )}
 
-              {passed && txHash && (
+              {passed ? (
                 <div className="bg-success/5 border border-success/20 p-4 rounded-lg">
                   <h2 className="font-semibold text-success mb-2">
-                    Payment Successful
+                    Payment Processing
                   </h2>
-                  <p className="text-sm text-gray-600 break-all">
-                    Transaction Hash: {txHash}
-                  </p>
+                  {txHash ? (
+                    <>
+                      <p className="text-gray-600 mb-2">
+                        Your payment has been successfully processed!
+                      </p>
+                      <p className="text-sm text-gray-600 break-all">
+                        Transaction Hash: {txHash}
+                      </p>
+                    </>
+                  ) : (
+                    <p className="text-sm text-gray-600">
+                      Your submission was successful but no payment was processed as you're not signed in. Sign in to receive rewards for your contributions!
+                    </p>
+                  )}
                 </div>
-              )}
+              ) : null}
 
               <div className="flex flex-col sm:flex-row gap-3">
                 <Button 
