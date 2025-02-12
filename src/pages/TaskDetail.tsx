@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { GradientContainer } from "@/components/GradientContainer";
@@ -25,6 +25,7 @@ const TASK_DATA = {
 
 const TaskDetail = () => {
   const { taskId } = useParams();
+  const navigate = useNavigate();
   const [paraphrase, setParaphrase] = useState("");
   
   const taskData = TASK_DATA[taskId as keyof typeof TASK_DATA];
@@ -43,8 +44,16 @@ const TaskDetail = () => {
   }
 
   const handleSubmit = () => {
-    // Handle submission logic here
-    console.log("Submitted paraphrase:", paraphrase);
+    // Simulate evaluation - in a real app, this would be an API call
+    const score = Math.floor(Math.random() * 30) + 70; // Random score between 70-100
+    const feedbackMessages = {
+      paraphrase: "Your paraphrase is clear and accurate, but consider varying the sentence structure slightly for better fluency.",
+      factual: "Good correction and explanation. Your response accurately identifies and explains the error.",
+    };
+    
+    // Redirect to evaluation result page with the score and feedback
+    const feedback = taskId && feedbackMessages[taskId as keyof typeof feedbackMessages];
+    navigate(`/evaluation?score=${score}&feedback=${encodeURIComponent(feedback || "")}&taskId=${taskId}`);
   };
 
   const handleClear = () => {

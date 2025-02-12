@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import ConnectWallet from "./pages/ConnectWallet";
 import Tasks from "./pages/Tasks";
 import TaskDetail from "./pages/TaskDetail";
+import EvaluationResult from "./pages/EvaluationResult";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -23,6 +24,7 @@ const App = () => (
           <Route path="/connect-wallet" element={<ConnectWallet />} />
           <Route path="/tasks" element={<Tasks />} />
           <Route path="/task/:taskId" element={<TaskDetail />} />
+          <Route path="/evaluation" element={<EvaluationResult />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
