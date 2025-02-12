@@ -47,7 +47,7 @@ export type Database = {
           status: string
           task_type: string
           transaction_hash: string | null
-          user_id: string
+          user_id: string | null
         }
         Insert: {
           created_at?: string | null
@@ -59,7 +59,7 @@ export type Database = {
           status?: string
           task_type: string
           transaction_hash?: string | null
-          user_id: string
+          user_id?: string | null
         }
         Update: {
           created_at?: string | null
@@ -71,7 +71,7 @@ export type Database = {
           status?: string
           task_type?: string
           transaction_hash?: string | null
-          user_id?: string
+          user_id?: string | null
         }
         Relationships: [
           {

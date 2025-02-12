@@ -51,6 +51,9 @@ const TaskDetail = () => {
     toast.info("Submitting your response...");
 
     try {
+      // Try to get user id if logged in
+      const { data: { user } } = await supabase.auth.getUser();
+      
       // Create submission record
       const { data: submission, error: submissionError } = await supabase
         .from('task_submissions')
@@ -58,7 +61,8 @@ const TaskDetail = () => {
           task_type: taskId,
           original_text: taskData.originalText,
           response_text: paraphrase,
-          status: 'pending_evaluation'
+          status: 'pending_evaluation',
+          ...(user && { user_id: user.id }) // Only include user_id if user is logged in
         })
         .select()
         .single();
