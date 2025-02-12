@@ -3,10 +3,13 @@ import { Logo } from "@/components/Logo";
 import { Button } from "@/components/ui/button";
 import { GradientContainer } from "@/components/GradientContainer";
 import { useNavigate } from "react-router-dom";
-import { useAddress, useConnect, useDisconnect, useNetworkMismatch, useNetwork, ChainId } from "@thirdweb-dev/react";
+import { useAddress, useConnect, useDisconnect, useNetworkMismatch, useNetwork, ConnectorType } from "@thirdweb-dev/react";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
 import { useEffect, useState } from "react";
+
+// Celo Mainnet Chain ID
+const CELO_CHAIN_ID = 42220;
 
 const ConnectWallet = () => {
   const navigate = useNavigate();
@@ -27,12 +30,12 @@ const ConnectWallet = () => {
   const handleConnect = async () => {
     try {
       setIsConnecting(true);
-      await connect();
+      await connect(ConnectorType.MetaMask);
       
       // Check if we need to switch to Celo network
       if (isNetworkMismatch) {
         try {
-          await switchNetwork?.(ChainId.Celo);
+          await switchNetwork?.(CELO_CHAIN_ID);
         } catch (error) {
           console.error("Failed to switch network:", error);
           toast.error("Please switch to the Celo network in your wallet");
