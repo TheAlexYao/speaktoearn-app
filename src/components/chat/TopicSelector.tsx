@@ -45,7 +45,7 @@ export const TopicSelector = ({ onTopicSelect }: TopicSelectorProps) => {
   return (
     <div className="space-y-6 animate-fade-up px-4 md:px-6">
       <div className="text-center space-y-2">
-        <h1 className="text-2xl font-bold text-gray-900">AI Language Partner</h1>
+        <h1 className="text-2xl font-bold text-gray-900">Echo</h1>
         <p className="text-lg text-gray-700">Jambo! 👋 I'm learning Swahili.</p>
         <p className="text-sm text-gray-600">Help me understand how locals talk about:</p>
       </div>
