@@ -1,7 +1,7 @@
 
 import { createThirdwebClient } from "thirdweb";
 import { createWallet } from "thirdweb/wallets";
-import { celoAlfajores } from "@thirdweb-dev/chains";
+import { celoAlfajores } from "thirdweb/chains";
 
 // Create the client
 export const client = createThirdwebClient({
