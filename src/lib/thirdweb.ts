@@ -12,7 +12,7 @@ export const client = createThirdwebClient({
 export const supportedWallets = [
   createWallet("io.metamask"),
   createWallet("com.coinbase.wallet"),
-  createWallet("wallet-connect"),
+  createWallet("walletconnect"),
 ];
 
 // Export chain configuration
