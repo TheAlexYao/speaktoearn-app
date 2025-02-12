@@ -17,15 +17,6 @@ const ConnectWalletPage = () => {
     });
   };
 
-  const handleError = (error: Error) => {
-    console.error("Wallet connection error:", error);
-    toast({
-      title: "Connection Error",
-      description: error.message,
-      variant: "destructive",
-    });
-  };
-
   return (
     <div className="relative min-h-screen">
       <GradientContainer />
@@ -46,7 +37,6 @@ const ConnectWalletPage = () => {
               wallets={wallets}
               connectModal={{ size: "compact" }}
               onConnect={handleConnect}
-              onError={handleError}
             />
           </div>
         </div>
