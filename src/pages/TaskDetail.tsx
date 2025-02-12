@@ -1,0 +1,132 @@
+
+import { useState } from "react";
+import { useParams, Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
+import { GradientContainer } from "@/components/GradientContainer";
+import { ArrowLeft } from "lucide-react";
+
+const TASK_DATA = {
+  paraphrase: {
+    title: "Paraphrase a Financial Report Sentence",
+    instructions: "You will be provided with a sentence taken from a quarterly financial report. Your job is to rewrite the sentence in your own words without changing its meaning. Ensure your version is clear, natural, and grammatically correct.",
+    originalText: "According to the company's quarterly report, revenue grew by 12% compared to the previous quarter despite a downturn in global markets.",
+    exampleParaphrase: "The quarterly report shows that the company's revenue increased by 12% from the last quarter, even though global markets were declining.",
+    reward: "0.25 CUSD",
+  }
+};
+
+const TaskDetail = () => {
+  const { taskId } = useParams();
+  const [paraphrase, setParaphrase] = useState("");
+  
+  const taskData = TASK_DATA[taskId as keyof typeof TASK_DATA];
+  
+  if (!taskData) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold mb-4">Task not found</h1>
+          <Link to="/tasks" className="text-primary hover:underline">
+            Return to Tasks
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
+  const handleSubmit = () => {
+    // Handle submission logic here
+    console.log("Submitted paraphrase:", paraphrase);
+  };
+
+  const handleClear = () => {
+    setParaphrase("");
+  };
+
+  return (
+    <div className="relative min-h-screen pb-8">
+      <GradientContainer />
+      
+      <div className="relative z-10">
+        <div className="max-w-2xl mx-auto px-4 pt-6">
+          <Link 
+            to="/tasks" 
+            className="inline-flex items-center text-sm text-primary hover:text-primary/90 mb-6"
+          >
+            <ArrowLeft className="w-4 h-4 mr-1" />
+            Back to Tasks
+          </Link>
+          
+          <div className="bg-white rounded-xl shadow-lg p-6 mb-6">
+            <h1 className="text-2xl font-bold text-gray-900 mb-2">
+              {taskData.title}
+            </h1>
+            <div className="text-sm text-primary font-medium mb-6">
+              Reward: {taskData.reward}
+            </div>
+
+            <div className="space-y-6">
+              <section>
+                <h2 className="text-lg font-semibold text-gray-900 mb-2">
+                  Task Instructions
+                </h2>
+                <p className="text-gray-600">
+                  {taskData.instructions}
+                </p>
+              </section>
+
+              <section className="bg-gray-50 rounded-lg p-4">
+                <h2 className="text-lg font-semibold text-gray-900 mb-3">
+                  Example
+                </h2>
+                <div className="space-y-4">
+                  <div>
+                    <div className="font-medium text-gray-900 mb-1">Original Sentence:</div>
+                    <p className="text-gray-600">{taskData.originalText}</p>
+                  </div>
+                  <div>
+                    <div className="font-medium text-gray-900 mb-1">Expected Paraphrase:</div>
+                    <p className="text-gray-600">{taskData.exampleParaphrase}</p>
+                  </div>
+                </div>
+              </section>
+
+              <section>
+                <label 
+                  htmlFor="paraphrase" 
+                  className="block text-sm font-medium text-gray-900 mb-2"
+                >
+                  Enter your paraphrase below:
+                </label>
+                <Textarea
+                  id="paraphrase"
+                  value={paraphrase}
+                  onChange={(e) => setParaphrase(e.target.value)}
+                  placeholder="Write your paraphrase here..."
+                  className="min-h-[120px] mb-4"
+                />
+                <div className="flex gap-3">
+                  <Button 
+                    onClick={handleSubmit}
+                    className="flex-1"
+                  >
+                    Submit
+                  </Button>
+                  <Button 
+                    variant="outline" 
+                    onClick={handleClear}
+                  >
+                    Clear
+                  </Button>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default TaskDetail;
