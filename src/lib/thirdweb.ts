@@ -11,7 +11,7 @@ export const celoAlfajores = defineChain(44787);
 
 // Create the client with minimal configuration and Celo chain
 export const client = createThirdwebClient({
-  clientId: process.env.THIRDWEB_CLIENT_ID as string,
+  clientId: import.meta.env.VITE_THIRDWEB_CLIENT_ID as string,
 });
 
 // Configure available wallets
