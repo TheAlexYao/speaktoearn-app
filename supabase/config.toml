@@ -2,4 +2,5 @@
 project_id = "obffhqawrjpbuqwlwwxm"
 
 [functions.evaluate-task]
-verify_jwt = true
+verify_jwt = false
+
