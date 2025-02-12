@@ -23,7 +23,7 @@ const languages = [
 
 export const LanguageExpertise = () => {
   const getAcceptanceRateColor = (rate: number) => {
-    if (rate >= 90) return "text-success-500";
+    if (rate >= 90) return "text-white font-medium";
     if (rate >= 80) return "text-warning-500";
     return "text-destructive-500";
   };
@@ -39,7 +39,7 @@ export const LanguageExpertise = () => {
 
       <div className="space-y-4">
         {languages.map((lang) => (
-          <Card key={lang.language} className="hover:shadow-xl transition-all duration-300">
+          <Card key={lang.language} className="hover:shadow-xl transition-all duration-300 bg-primary/10">
             <CardContent className="p-5">
               <div className="flex items-start justify-between mb-4">
                 <div>
@@ -54,7 +54,7 @@ export const LanguageExpertise = () => {
                   </div>
                 </div>
                 <span className={cn(
-                  "text-sm font-medium",
+                  "text-sm",
                   getAcceptanceRateColor(lang.acceptanceRate)
                 )}>
                   {lang.acceptanceRate}% Acceptance
