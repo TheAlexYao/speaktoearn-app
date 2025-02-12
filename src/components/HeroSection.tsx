@@ -1,10 +1,7 @@
-
 import { ArrowRight, Globe } from "lucide-react";
 import { Logo } from "./Logo";
-
 export const HeroSection = () => {
-  return (
-    <section className="relative pt-24 pb-20 px-4 overflow-hidden">
+  return <section className="relative pt-24 pb-20 px-4 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent" />
       <div className="max-w-4xl mx-auto text-center relative animate-fade-in">
         <div className="flex justify-center mb-10">
@@ -16,7 +13,7 @@ export const HeroSection = () => {
             Now available globally
           </span>
         </div>
-        <h1 className="text-4xl md:text-6xl font-bold mb-8 gradient-text leading-tight">
+        <h1 className="text-4xl md:text-6xl font-bold mb-8 gradient-text leading-tight px-[2px]">
           Earn Crypto By Speaking Your Language
         </h1>
         <p className="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
@@ -32,6 +29,5 @@ export const HeroSection = () => {
           </button>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
