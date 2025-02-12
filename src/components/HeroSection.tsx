@@ -1,14 +1,13 @@
-
 import { ArrowRight, Globe } from "lucide-react";
 import { Logo } from "./Logo";
-
 export const HeroSection = () => {
-  return (
-    <section className="relative min-h-screen pt-24 pb-20 px-4 overflow-hidden">
+  return <section className="relative min-h-screen pt-24 pb-20 px-4 overflow-hidden">
       {/* Animated background shapes */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-primary/10 blur-3xl floating" />
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 rounded-full bg-secondary/10 blur-3xl floating" style={{ animationDelay: '1s' }} />
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 rounded-full bg-secondary/10 blur-3xl floating" style={{
+        animationDelay: '1s'
+      }} />
       </div>
       
       <div className="max-w-4xl mx-auto text-center relative">
@@ -23,7 +22,7 @@ export const HeroSection = () => {
           </span>
         </div>
         
-        <h1 className="text-4xl md:text-6xl font-bold mb-8 gradient-text leading-tight animate-fade-up">
+        <h1 className="text-4xl md:text-6xl font-bold mb-8 gradient-text leading-tight animate-fade-up px-[2px]">
           Earn Crypto By Speaking Your Language
         </h1>
         
@@ -41,6 +40,5 @@ export const HeroSection = () => {
           </button>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
