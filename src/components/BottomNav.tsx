@@ -39,7 +39,7 @@ export const BottomNav = () => {
   ];
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-2 py-2">
+    <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-2 py-2 z-50">
       <div className="max-w-lg mx-auto grid grid-cols-5">
         {navItems.map((item) => {
           const active = isActive(item.path);
