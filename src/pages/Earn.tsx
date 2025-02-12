@@ -147,7 +147,7 @@ const Earn = () => {
               <Button 
                 variant="outline" 
                 size="sm" 
-                className="border border-white/20 text-white hover:bg-white/10 hover:text-white transition-colors"
+                className="border border-white/20 bg-white/10 text-white font-medium hover:bg-white/20 hover:text-white transition-colors"
               >
                 View All
               </Button>
@@ -192,7 +192,7 @@ const Earn = () => {
               <Button 
                 variant="outline" 
                 size="sm" 
-                className="border border-white/20 text-white hover:bg-white/10 hover:text-white transition-colors"
+                className="border border-white/20 bg-white/10 text-white font-medium hover:bg-white/20 hover:text-white transition-colors"
               >
                 See All Tasks
               </Button>
@@ -247,7 +247,7 @@ const Earn = () => {
               <Button 
                 variant="outline" 
                 size="sm" 
-                className="border border-white/20 text-white hover:bg-white/10 hover:text-white transition-colors"
+                className="border border-white/20 bg-white/10 text-white font-medium hover:bg-white/20 hover:text-white transition-colors"
               >
                 Explore All
               </Button>
