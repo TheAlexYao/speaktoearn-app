@@ -49,11 +49,11 @@ export const HeroSection = () => {
           </span>
         </div>
         
-        <h1 className="text-4xl md:text-6xl font-bold mb-8 text-white leading-tight animate-fade-up px-[2px]">
+        <h1 className="text-4xl md:text-6xl font-bold mb-8 gradient-text leading-tight animate-fade-up px-[2px]">
           Earn Crypto By Speaking Your Language
         </h1>
         
-        <p className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed animate-fade-up glass-card p-6 rounded-2xl">
+        <p className="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed animate-fade-up glass-card p-6 rounded-2xl">
           Join 847 active contributors preserving languages and earning rewards while making a lasting impact.
         </p>
 
@@ -86,7 +86,7 @@ export const HeroSection = () => {
             Connect Wallet to Start Earning
             <ArrowRight className="w-4 h-4" />
           </button>
-          <button className="w-full sm:w-auto text-white px-8 py-4 rounded-full font-medium border border-white/20 hover:bg-white/10 transition-all duration-300 hover:border-white/40 hover:shadow-lg">
+          <button className="w-full sm:w-auto text-gray-700 px-8 py-4 rounded-full font-medium border border-gray-200 hover:bg-gray-50 transition-all duration-300 hover:border-primary/20 hover:shadow-lg">
             Learn More
           </button>
         </div>
