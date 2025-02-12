@@ -9,9 +9,12 @@ import {
 // Define Celo Alfajores testnet
 export const celoAlfajores = defineChain(44787);
 
+// Log the client ID to help with debugging
+console.log("ThirdWeb Client ID:", import.meta.env.VITE_THIRDWEB_CLIENT_ID);
+
 // Create the client with minimal configuration and Celo chain
 export const client = createThirdwebClient({
-  clientId: import.meta.env.VITE_THIRDWEB_CLIENT_ID,
+  clientId: import.meta.env.VITE_THIRDWEB_CLIENT_ID || "your-client-id-here", // Add a fallback to help with debugging
   secretKey: "",  // We don't need a secret key for client-side operations
 });
 
