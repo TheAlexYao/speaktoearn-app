@@ -16,9 +16,7 @@ export const HeroSection = () => {
         <h1 className="text-4xl md:text-6xl font-bold mb-8 gradient-text leading-tight px-[2px]">
           Earn Crypto By Speaking Your Language
         </h1>
-        <p className="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
-          Join 847 contributors preserving languages and earning rewards while making a lasting impact.
-        </p>
+        <p className="text-lg md:text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">Join 847 active contributors preserving languages and earning rewards while making a lasting impact.</p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <button className="w-full sm:w-auto gradient-bg text-white px-8 py-4 rounded-full font-medium flex items-center justify-center gap-2 hover:opacity-90 transition-opacity shadow-lg">
             Connect Wallet to Start Earning
