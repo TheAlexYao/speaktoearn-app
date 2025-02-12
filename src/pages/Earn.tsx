@@ -1,4 +1,3 @@
-
 import { useNavigate } from "react-router-dom";
 import { Mic, FileText, Languages, Edit, ExternalLink, Trophy, Clock, TrendingUp, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -6,6 +5,9 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { BottomNav } from "@/components/BottomNav";
 import { GradientContainer } from "@/components/GradientContainer";
 import { Card, CardContent } from "@/components/ui/card";
+import { QuickActions } from "@/components/earn/QuickActions";
+import { MiniLeaderboard } from "@/components/earn/MiniLeaderboard";
+import { AchievementStreaks } from "@/components/earn/AchievementStreaks";
 
 // Mock data
 const taskCategories = [
@@ -108,37 +110,15 @@ const Earn = () => {
       
       <div className="relative z-10">
         <div className="max-w-lg mx-auto px-4 pt-8">
-          {/* Quick Actions Dashboard */}
-          <div className="bg-white/95 backdrop-blur-xl rounded-2xl p-6 mb-8 shadow-xl border border-white/20 animate-fade-up">
-            <div className="flex items-center justify-between mb-6">
-              <div>
-                <h2 className="text-2xl font-bold bg-gradient-to-r from-primary via-secondary to-[#8B5CF6] bg-clip-text text-transparent">Quick Actions</h2>
-                <p className="text-sm text-muted-foreground mt-1">Continue your earning streak</p>
-              </div>
-              <div className="text-right">
-                <p className="text-sm text-muted-foreground">Today's Potential</p>
-                <p className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">24.5 CUSD</p>
-              </div>
-            </div>
-            
-            <div className="grid grid-cols-2 gap-4 mb-6">
-              <div className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-xl p-4 border border-white/10">
-                <div className="text-xl font-semibold text-primary">7 Days</div>
-                <div className="text-sm text-muted-foreground">Active Streak</div>
-              </div>
-              <div className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-xl p-4 border border-white/10">
-                <div className="text-xl font-semibold text-primary">41</div>
-                <div className="text-sm text-muted-foreground">Tasks Available</div>
-              </div>
-            </div>
+          <QuickActions 
+            potentialEarnings="24.5 CUSD"
+            streakDays={7}
+            availableTasks={41}
+          />
 
-            <Button 
-              className="w-full bg-gradient-to-r from-primary to-secondary text-white hover:opacity-90 transition-all duration-300"
-              onClick={() => navigate('/tasks')}
-            >
-              Start Latest Task
-            </Button>
-          </div>
+          <MiniLeaderboard />
+          
+          <AchievementStreaks />
 
           {/* Task Categories */}
           <div className="mb-8 animate-fade-up" style={{ animationDelay: '100ms' }}>
