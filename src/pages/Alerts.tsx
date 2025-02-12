@@ -100,11 +100,11 @@ const Alerts = () => {
     <>
       <GradientContainer />
       <div className="relative min-h-screen pb-32">
-        <div className="container max-w-4xl py-8 px-4 sm:px-6 lg:px-8 overflow-y-auto">
-          <div className="flex items-center justify-between mb-8">
+        <div className="container max-w-4xl py-4 sm:py-8 px-3 sm:px-6 lg:px-8 overflow-y-auto">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-8 mb-6 sm:mb-8">
             <div>
-              <h1 className="text-2xl font-bold text-white flex items-center gap-2">
-                <Bell className="h-6 w-6" />
+              <h1 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+                <Bell className="h-5 w-5 sm:h-6 sm:w-6" />
                 Notifications
               </h1>
               {unreadCount > 0 && (
@@ -114,14 +114,14 @@ const Alerts = () => {
               )}
             </div>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3">
               <div className="hidden sm:flex gap-2">
                 <Button
                   variant="secondary"
                   size="sm"
                   onClick={handleMarkAllRead}
                   disabled={unreadCount === 0}
-                  className="bg-[#9b87f5] hover:bg-[#7E69AB] text-white"
+                  className="bg-white hover:bg-white/90 text-gray-900"
                 >
                   <Check className="h-4 w-4 mr-2" />
                   Mark all read
@@ -131,7 +131,7 @@ const Alerts = () => {
                   size="sm"
                   onClick={handleClearAll}
                   disabled={alerts.length === 0}
-                  className="bg-[#9b87f5] hover:bg-[#7E69AB] text-white"
+                  className="bg-white hover:bg-white/90 text-gray-900"
                 >
                   <Trash2 className="h-4 w-4 mr-2" />
                   Clear all
@@ -142,7 +142,7 @@ const Alerts = () => {
                 value={filter}
                 onValueChange={(value) => setFilter(value as AlertType | "all")}
               >
-                <SelectTrigger className="w-[140px] bg-white border-none text-gray-900">
+                <SelectTrigger className="w-[120px] sm:w-[140px] bg-white border-none text-gray-900">
                   <Filter className="h-4 w-4 mr-2" />
                   <SelectValue placeholder="Filter" />
                 </SelectTrigger>
@@ -167,23 +167,23 @@ const Alerts = () => {
           />
 
           {/* Mobile actions - fixed at bottom */}
-          <div className="fixed bottom-20 left-4 right-4 flex gap-2 sm:hidden z-50">
+          <div className="fixed bottom-20 left-0 right-0 flex gap-2 p-3 sm:hidden z-50 bg-white/10 backdrop-blur-lg border-t border-white/20">
             <Button
-              className="flex-1 bg-[#9b87f5] hover:bg-[#7E69AB] text-white"
+              className="flex-1 bg-white hover:bg-white/90 text-gray-900 text-sm py-2 h-auto"
               variant="secondary"
               onClick={handleMarkAllRead}
               disabled={unreadCount === 0}
             >
-              <Check className="h-4 w-4 mr-2" />
-              Mark all read
+              <Check className="h-4 w-4 mr-1.5" />
+              Mark read
             </Button>
             <Button
-              className="flex-1 bg-[#9b87f5] hover:bg-[#7E69AB] text-white"
+              className="flex-1 bg-white hover:bg-white/90 text-gray-900 text-sm py-2 h-auto"
               variant="secondary"
               onClick={handleClearAll}
               disabled={alerts.length === 0}
             >
-              <Trash2 className="h-4 w-4 mr-2" />
+              <Trash2 className="h-4 w-4 mr-1.5" />
               Clear all
             </Button>
           </div>
