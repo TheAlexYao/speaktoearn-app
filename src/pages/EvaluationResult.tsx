@@ -3,6 +3,7 @@ import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { GradientContainer } from "@/components/GradientContainer";
 import { Check, X, ArrowLeft, RotateCcw, Wallet } from "lucide-react";
+import { BottomNav } from "@/components/BottomNav";
 
 const EvaluationResult = () => {
   const [searchParams] = useSearchParams();
@@ -20,7 +21,7 @@ const EvaluationResult = () => {
   };
 
   return (
-    <div className="relative min-h-screen pb-8">
+    <div className="relative min-h-screen pb-20">
       <GradientContainer />
       
       <div className="relative z-10">
@@ -126,6 +127,7 @@ const EvaluationResult = () => {
           </div>
         </div>
       </div>
+      <BottomNav />
     </div>
   );
 };
