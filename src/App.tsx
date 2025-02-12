@@ -15,7 +15,6 @@ import Alerts from "./pages/Alerts";
 import Chat from "./pages/Chat";
 import NotFound from "./pages/NotFound";
 
-// Create a new QueryClient instance with default options
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -28,9 +27,9 @@ const queryClient = new QueryClient({
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <Toaster />
-      <Sonner />
       <BrowserRouter>
+        <Toaster />
+        <Sonner />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/connect-wallet" element={<ConnectWallet />} />
