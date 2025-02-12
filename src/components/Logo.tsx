@@ -1,3 +1,8 @@
+
 export const Logo = () => {
-  return;
+  return (
+    <div className="inline-flex items-center gap-2">
+      <span className="text-2xl font-bold gradient-text">Lovable</span>
+    </div>
+  );
 };
