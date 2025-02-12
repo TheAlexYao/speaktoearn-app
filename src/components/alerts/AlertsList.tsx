@@ -19,7 +19,7 @@ export const AlertsList = ({ alerts, onMarkRead }: AlertsListProps) => {
     <div className="space-y-6 animate-fade-up">
       {pinnedAlerts.length > 0 && (
         <div>
-          <h2 className="text-sm font-medium text-muted-foreground mb-3">
+          <h2 className="text-sm font-medium text-white/90 mb-3">
             Pinned
           </h2>
           {pinnedAlerts.map(alert => (
@@ -34,7 +34,7 @@ export const AlertsList = ({ alerts, onMarkRead }: AlertsListProps) => {
 
       {urgentAlerts.length > 0 && (
         <div>
-          <h2 className="text-sm font-medium text-destructive flex items-center gap-2 mb-3">
+          <h2 className="text-sm font-medium text-white flex items-center gap-2 mb-3">
             <AlertTriangle className="h-4 w-4" />
             Urgent & Important
           </h2>
@@ -50,7 +50,7 @@ export const AlertsList = ({ alerts, onMarkRead }: AlertsListProps) => {
 
       {normalAlerts.length > 0 && (
         <div>
-          <h2 className="text-sm font-medium text-foreground flex items-center gap-2 mb-3">
+          <h2 className="text-sm font-medium text-white flex items-center gap-2 mb-3">
             <Bell className="h-4 w-4" />
             General Notifications
           </h2>
@@ -66,7 +66,7 @@ export const AlertsList = ({ alerts, onMarkRead }: AlertsListProps) => {
 
       {lowAlerts.length > 0 && (
         <div>
-          <h2 className="text-sm font-medium text-muted-foreground flex items-center gap-2 mb-3">
+          <h2 className="text-sm font-medium text-white flex items-center gap-2 mb-3">
             <CheckCircle className="h-4 w-4" />
             Other Notifications
           </h2>
@@ -81,7 +81,7 @@ export const AlertsList = ({ alerts, onMarkRead }: AlertsListProps) => {
       )}
 
       {alerts.length === 0 && (
-        <div className="text-center py-12 text-muted-foreground">
+        <div className="text-center py-12 text-white/70">
           No notifications to show
         </div>
       )}
