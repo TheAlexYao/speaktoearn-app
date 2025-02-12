@@ -4,13 +4,16 @@ import { useNavigate } from "react-router-dom";
 import { ConnectButton } from "thirdweb/react";
 import { client, wallets } from "@/lib/thirdweb";
 import { useToast } from "@/hooks/use-toast";
+import { useState } from "react";
 
 const ConnectWalletPage = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
+  const [isConnected, setIsConnected] = useState(false);
 
   const handleConnect = () => {
     console.log("Wallet connected successfully");
+    setIsConnected(true);
     toast({
       title: "Wallet Connected",
       description: "Your wallet has been connected successfully!",
@@ -31,13 +34,22 @@ const ConnectWalletPage = () => {
             </p>
           </div>
           
-          <div className="px-3 md:p-4">
+          <div className="flex flex-col items-center justify-center space-y-4 mt-8">
             <ConnectButton
               client={client}
               wallets={wallets}
               connectModal={{ size: "compact" }}
               onConnect={handleConnect}
             />
+            
+            {isConnected && (
+              <button
+                onClick={() => navigate('/tasks')}
+                className="gradient-bg text-white px-8 py-3 rounded-full font-medium flex items-center gap-2 justify-center hover:opacity-90 transition-opacity w-full md:w-auto"
+              >
+                Continue to Tasks
+              </button>
+            )}
           </div>
         </div>
       </div>
