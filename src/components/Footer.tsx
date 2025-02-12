@@ -22,9 +22,9 @@ export const Footer = () => {
       <div className="max-w-4xl mx-auto py-12 px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
-            <h3 className="font-semibold mb-4">Language Commons</h3>
+            <h3 className="font-semibold mb-4">SpeakToEarn</h3>
             <p className="text-sm text-gray-600">
-              Preserving languages, empowering communities
+              Empowering voices, rewarding communities
             </p>
           </div>
           
@@ -78,7 +78,7 @@ export const Footer = () => {
         </div>
         
         <div className="mt-8 pt-8 border-t text-center text-sm text-gray-600">
-          <p>© 2024 Language Commons. All rights reserved.</p>
+          <p>© 2024 SpeakToEarn. All rights reserved.</p>
         </div>
       </div>
     </footer>

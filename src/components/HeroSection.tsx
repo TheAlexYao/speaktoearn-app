@@ -12,15 +12,14 @@ export const HeroSection = () => {
           </span>
         </div>
         <h1 className="text-4xl md:text-5xl font-semibold mb-6 gradient-text">
-          Get Paid to Preserve & Learn Languages
+          Earn Crypto By Speaking Your Language
         </h1>
         <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-          Earn stablecoins by contributing voice recordings, translations, and
-          transcriptions while helping preserve languages for future generations.
+          Join 847 contributors preserving languages and earning rewards while making a lasting impact.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <button className="gradient-bg text-white px-8 py-3 rounded-full font-medium flex items-center gap-2 hover:opacity-90 transition-opacity">
-            Start Earning Now
+            Connect Wallet to Start Earning
             <ArrowRight className="w-4 h-4" />
           </button>
           <button className="text-gray-700 px-8 py-3 rounded-full font-medium border border-gray-200 hover:bg-gray-50 transition-colors">
