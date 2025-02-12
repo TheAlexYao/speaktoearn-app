@@ -5,6 +5,7 @@ import { Copy, ChevronDown, ChevronUp } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 interface Transaction {
   date: string;
@@ -52,8 +53,18 @@ export const ProfileHeader = () => {
     <div className="mb-8 animate-fade-up" style={{ animationDelay: '0ms' }}>
       <Card className="bg-white border-gray-200">
         <div className="p-4 sm:p-6">
-          <div className="flex items-start justify-between mb-6">
-            <div>
+          <div className="flex items-start gap-6 mb-6">
+            <Avatar className="h-16 w-16 border border-primary/20 shadow-sm">
+              <AvatarImage 
+                src="/aisha-profile.webp" 
+                alt="Aisha M." 
+                className="object-cover"
+              />
+              <AvatarFallback className="bg-primary/10 text-primary text-lg">
+                AM
+              </AvatarFallback>
+            </Avatar>
+            <div className="flex-1">
               <h1 className="text-2xl font-bold text-gray-900">Aisha M.</h1>
               <div className="flex items-center gap-2 mt-1">
                 <button 
