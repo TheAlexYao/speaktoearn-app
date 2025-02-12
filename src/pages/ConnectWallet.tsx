@@ -3,9 +3,28 @@ import { GradientContainer } from "@/components/GradientContainer";
 import { useNavigate } from "react-router-dom";
 import { ConnectButton } from "thirdweb/react";
 import { client, wallets } from "@/lib/thirdweb";
+import { useToast } from "@/hooks/use-toast";
 
 const ConnectWalletPage = () => {
   const navigate = useNavigate();
+  const { toast } = useToast();
+
+  const handleConnect = () => {
+    console.log("Wallet connected successfully");
+    toast({
+      title: "Wallet Connected",
+      description: "Your wallet has been connected successfully!",
+    });
+  };
+
+  const handleError = (error: Error) => {
+    console.error("Wallet connection error:", error);
+    toast({
+      title: "Connection Error",
+      description: error.message,
+      variant: "destructive",
+    });
+  };
 
   return (
     <div className="relative min-h-screen">
@@ -26,6 +45,8 @@ const ConnectWalletPage = () => {
               client={client}
               wallets={wallets}
               connectModal={{ size: "compact" }}
+              onConnect={handleConnect}
+              onError={handleError}
             />
           </div>
         </div>
