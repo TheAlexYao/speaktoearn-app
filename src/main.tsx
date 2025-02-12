@@ -7,7 +7,8 @@ import { supportedWallets, chainConfig } from './lib/thirdweb';
 
 createRoot(document.getElementById("root")!).render(
   <ThirdwebProvider 
-    activeChain={chainConfig}
+    clientId={import.meta.env.VITE_THIRDWEB_CLIENT_ID}
+    supportedWallets={supportedWallets}
   >
     <App />
   </ThirdwebProvider>
