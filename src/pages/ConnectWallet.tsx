@@ -42,14 +42,12 @@ const ConnectWalletPage = () => {
               onConnect={handleConnect}
             />
             
-            {isConnected && (
-              <button
-                onClick={() => navigate('/tasks')}
-                className="bg-[#8B5CF6] hover:bg-[#7C3AED] text-white px-8 py-3 rounded-full font-medium flex items-center gap-2 justify-center transition-colors duration-200 w-full md:w-auto shadow-lg"
-              >
-                Continue to Tasks
-              </button>
-            )}
+            <button
+              onClick={() => navigate('/tasks')}
+              className="bg-[#8B5CF6] hover:bg-[#7C3AED] text-white px-8 py-3 rounded-full font-medium flex items-center gap-2 justify-center transition-colors duration-200 w-full md:w-auto shadow-lg"
+            >
+              Continue to Tasks
+            </button>
           </div>
         </div>
       </div>
