@@ -1,69 +1,121 @@
-# Welcome to your Lovable project
+# Speak to Earn – Get Paid to Preserve & Learn Languages
 
-## Project info
+Earn stablecoins by contributing your authentic voice—help AI learn your language.
 
-**URL**: https://lovable.dev/projects/e9f1c645-80d0-46d1-8b06-b43221bd8ef6
+## 🌟 The Problem
 
-## How can I edit this code?
+- Massive market opportunity in AI language data ($2.8B in 2024 to $9.6B in 2029)
+- High-quality, diverse speech data is scarce and expensive
+- Traditional collection methods are slow and inefficient
+- Millions of native speakers remain unrecognized and uncompensated
 
-There are several ways of editing your application.
+## 💡 Our Solution
 
-**Use Lovable**
+Speak to Earn creates a win-win ecosystem through:
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/e9f1c645-80d0-46d1-8b06-b43221bd8ef6) and start prompting.
+1. **Automated Data Collection**
+   - AI-powered task matching and evaluation
+   - Instant stablecoin payouts via Celo
+   - Transparent, decentralized data commons
 
-Changes made via Lovable will be committed automatically to this repo.
+2. **Diverse Task Portfolio**
+   - Voice recording and speech data
+   - Bilingual translation
+   - Dialect and cultural context
+   - Tone/emotion labeling
+   - Code-switching samples
 
-**Use your preferred IDE**
+3. **Ethical Data Collection**
+   - Fair compensation for contributors
+   - Immutable audit trail via blockchain
+   - Community-driven governance
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🔗 Technical Architecture
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Smart Contracts
+- Deployed on Celo Alfajores testnet
+- Built with Hardhat and OpenZeppelin
+- Automated reward distribution system
 
-Follow these steps:
+### Frontend
+- React 18 with TypeScript
+- Vite for fast development
+- shadcn/ui components
+- TailwindCSS for styling
+- Web3 integration with ethers.js
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### Backend
+- Node.js/Express server
+- OpenAI for speech verification
+- Supabase for data storage
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## 🚀 Quick Start
 
-# Step 3: Install the necessary dependencies.
-npm i
+### Prerequisites
+- Node.js & npm - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- MetaMask or other Web3 wallet
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+### Wallet Setup
+
+1. Install MetaMask from [metamask.io](https://metamask.io)
+
+2. Configure Celo Alfajores Testnet:
+   - Network Name: Celo Alfajores Testnet
+   - RPC URL: https://alfajores-forno.celo-testnet.org
+   - Chain ID: 44787
+   - Currency Symbol: CELO
+   - Block Explorer: https://alfajores.celoscan.io
+
+3. Get testnet CELO:
+   - Visit [Celo Faucet](https://faucet.celo.org)
+   - Enter your wallet address
+
+### Installation
+
+1. Clone and setup:
+```bash
+git clone https://github.com/TheAlexYao/speaktoearn-app.git
+cd speaktoearn-app
+npm install
+```
+
+2. Start development server:
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## 🌐 Links
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- Website: [https://speaktoearn.app](https://speaktoearn.app)
+- Data Commons: [https://commons.speaktoearn.org](https://commons.speaktoearn.org)
+- Demo Video: [Watch Demo](https://www.loom.com/share/d1473f89df58401989c134bec49f28ac)
+- Repositories:
+  - [App](https://github.com/TheAlexYao/speaktoearn-app)
+  - [AI Agent](https://github.com/TheAlexYao/speaktoearn-agent)
+  - [Data](https://github.com/TheAlexYao/speaktoearn-data)
 
-**Use GitHub Codespaces**
+## 👥 Team
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Alex Yao ([@thealexyao](https://x.com/thealexyao))
+- Entrepreneur and full stack AI builder
+- Building at the intersection of AI and blockchain
+- Leading development of the Speak to Earn platform
 
-## What technologies are used for this project?
+## 🔮 Future Vision
 
-This project is built with .
+- Expand task types and verification mechanisms
+- Build AI-powered language learning applications
+- Implement on-chain reputation and governance
+- Scale to a global network of contributors
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Contributing
 
-## How can I deploy this project?
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-Simply open [Lovable](https://lovable.dev/projects/e9f1c645-80d0-46d1-8b06-b43221bd8ef6) and click on Share -> Publish.
+## License
 
-## I want to use a custom domain - is that possible?
-
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
